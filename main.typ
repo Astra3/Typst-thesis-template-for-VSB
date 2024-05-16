@@ -1,105 +1,68 @@
-#set document(title: [Bachelors thesis template], author: ("Dr00g", "Darin"), keywords: ("Dr00g", "Darin", "Bachelor", "Bachelors", "Thesis"))
+// If you wish to add a title, authors or keywords, do so here!
+#set document(
+  title: [Bachelors thesis example],
+  author: ("Your name"),
+  keywords: (
+    "keyword1",
+    "keyword2"
+  )
+)
+
+// Change the line (inside func-conf.typ):
+// #let language = "en"
+// to:
+// #let language = "cs"
+// if your thesis will be in Czech..
 
 
-// TODO:
-// Check for correct formatting and page config
-// Fix Contents outline (+ make it more.. intelligent and suitable for general use)
-// Create more functions where needed
-// Add a figure, pseudocode etc.
 
+//******************************************************************************
+// Template example author: Dr00g on Discord / Dr00gy on GitHub
 
-// LINKS:
-// https://typst.app/docs/reference/model/outline/#definitions-entry
-// https://typst.app/docs/reference/introspection/query/
-// https://typst.app/docs/reference/foundations/function/#definitions-where
-// https://typst.app/docs/reference/introspection/here/
-// https://typst.app/docs/reference/foundations/content/#definitions-location
-// https://typst.app/docs/reference/foundations/arguments/
-// https://typst.app/docs/reference/foundations/selector/
-// https://typst.app/docs/reference/foundations/array/
-// https://typst.app/docs/guides/page-setup-guide/
-
-
-// Template author: Dr00g on Discord
 // Sources / references for the template:
-/*
-1. https://www.cs.vsb.cz/dvorsky/Download/LaTeX/Czech/BachelorThesis.pdf (LateX)
-2. https://vizual.vsb.cz/cs/sablony-a-loga/psani-dokumentu/
-3. https://homel.vsb.cz/~luk76/students/Urban_Bc.pdf (OUTDATED)
-*/
+// 1. https://www.cs.vsb.cz/dvorsky/Download/LaTeX/Czech/BachelorThesis.pdf (LaTeX)
+// 2. https://vizual.vsb.cz/cs/sablony-a-loga/psani-dokumentu/
+// 3. https://homel.vsb.cz/~luk76/students/Urban_Bc.pdf (OUTDATED)
+
+// Special thanks to astra3 on Discord for helping me figure out more intricate markup
 
 // Typst documentation can be found in "Help" or at:
 // https://typst.app/docs/reference/
+//******************************************************************************
 
 
-// Pages styling
-#set page(
-  //width: 50cm,
-  //height: 50cm,
-  margin: (x: 2.5cm),
-  paper: "a4"
+
+// Imports from the function + config file
+#import ("func-conf.typ"): generateFirstPage, template, generateBeforeContents, language, assignmentTitle, abbSymbTitle, figuresListTitle, tablesListTitle
+
+#show: template
+
+
+
+// Actual document elements start here..
+// The very first page of the document
+// String parameters:
+// 1) The title of your thesis in Czech or English
+// 2) The title of your thesis again in the other language
+// 3) Your full name
+// 4) The supervisor of your thesis
+// 5) The year in which you are creating your thesis
+// 6) Your language setting, do not change this one, for your sake :)
+
+#generateFirstPage(
+  "Optical Mapping Technology Sequence Mapping Visualization Tool",
+  "Nástroj pro vizualizaci mapování sekvencí technologie optického mapování",
+  "Darin Pytel",
+  "Ing. Michal Vašinek, Ph.D.",
+  2024,
+  language
 )
 
-// Styling of headers and normal text
-#show heading: set text(font: "Calibri", weight: "bold", size: 20pt, lang: "cs", spacing: 160%)
-
-#set text(
-  font: "Calibri",
-  size: 11pt,
-  lang: "cs"
-)
-
-#set par(
-  leading: 12.65pt, // Can be of value between x1.15 to x1.5
-)
-
-#counter(page).update(0)
-
-// First page generation
-#let fullName = "Darin Pytel" // Your full name here
-#let leading = "Ing. Michal Vašinek, Ph.D." // Who is leading your thesis
-#let year = 2024 // The year in which you are creating your thesis
-
-#let generateFirstPage() = {
-move(dx: -23pt, dy: 0pt, image("CZ-visuals/FEI-ochranna-zona-CZ.png", width: 60%))
-
-heading[Ukázka sazby kvalifikační práce]
-linebreak()
-
-[#set text(size: 14pt, spacing: 160%)
-Diploma Thesis Typesetting Demo
-]
-linebreak()
-linebreak()
-[#set text(size: 20pt, spacing: 160%)
-#fullName
-]
-for i in range(20) { // Single line break with "\", enter or linebreak()
-  linebreak()
-}
-
-[#set text(size: 14pt, spacing: 160%)
-Bakalářská práce
-
-Vedoucí práce: #leading
-
-Ostrava, #year]
-pagebreak()
-}
-
-#generateFirstPage()
 
 
-// Thesis assignment
-#set par(
-  first-line-indent: 11pt,
-  leading: 12.65pt
-)
+// Your thesis assignment page, replace placeholder text with your own:
 
-#set list(indent: 20pt)
-#set enum(indent: 20pt)
-
-= Nástroj pro vizualizaci mapování sekvencí technologie optického mapování
+#heading(outlined: false, level: 2)[#assignmentTitle]
 \
 Optické mapování genomu je technologie, která umožňuje zkoumání rozsáhlých
 strukturálních variant zkoumaného genomu. Aby bylo možné sledovat odchylky zkoumaného genomu od referenčního genomu, je zapotřebí sekvence ať už simulovaného nebo skutečného charakteru namapovat na referenční sekvenci. Cílem této práce by mělo být vytvoření aplikace, která by vhodným způsobem vizualizovala různá namapování sekvencí na referenční genom a umožnila vizuální identifikaci oblastí, do kterých může být obtížné sekvence přesně mapovat. Vizualizace bude cílit na dva pohledy, první pohled bude z hlediska jedné zkoumané sekvence a jejích alternativních mapování napříč genomem, druhý pohled bude zaměřen na jednu oblast genomu a k ní budou doplněny různé sekvence. Zásady pro vypracování práce jsou následující:
@@ -109,75 +72,49 @@ strukturálních variant zkoumaného genomu. Aby bylo možné sledovat odchylky 
 #pagebreak()
 
 
-// Abstract
-#counter(page).update(0)
-= Abstrakt
-\
-#lorem(50)
 
-= Klíčová slova
-\
-keyword1; keyword2; keyword3
+// Other pages before the "Contents":
+// String parameters:
+// 1) The Czech text for your thesis
+// 2) The English text for your thesis
+// 5) Your language setting, do not change this one, for your sake :)
+// 6) The text of your acknowledgement
+// 3), 4) For keywords, simply put them into these arrays.. change the size however you like:
 
-#for i in range(5) {
-  linebreak()
-}
+#let czechKeywords = (
+  "optické mapování",
+  "genomika",
+  "mapování sekvencí",
+  "vizuální nástroj"
+)
 
-= Abstract
-\
-#lorem(50)
+#let englishKeywords = (
+  "optical mapping",
+  "genomics",
+  "sequence mapping",
+  "visual tool"
+)
 
-= Keywords
-\
-keyword1; keyword2; keyword3
-
-#pagebreak()
-
-
-// Acknowledgement
-#align(bottom)[
-= Poděkování
-\
-#lorem(30)
-]
-#counter(page).update(0)
-#set page(numbering: "1")
-#pagebreak()
+#generateBeforeContents(
+  "AAA",
+  "BBB",
+  czechKeywords,
+  englishKeywords,
+  language,
+  "CCC"
+)
 
 
-#show heading: set text(font: "Calibri", weight: "bold", size: 28pt, spacing: 160%)
+
 // Contents
-\
-#show outline.entry.where(
-  page: [0]
-): it => {
-  //strong(it)
-  hide(it)
-}
-#show outline.entry.where(
-  page: [1]
-): it => {
-  //strong(it)
-  hide(it)
-}
-#show outline.entry.where(
-  page: [3]
-): it => {
-  //strong(it)
-  hide(it)
-}
-#show outline.entry.where(
-  page: [4]
-): it => {
-  //strong(it)
-  hide(it)
-}
-#outline()
+#outline(fill: none) // TODO: Add rule for ... styling for nested chapters / figures
 #pagebreak()
 
 
-// List of symbols and abbreviations (using "terms" from reference)
-= Seznam použitých zkratek a symbolů
+
+// List of symbols and abbreviations
+// Insert your short names and their long names here..
+= #abbSymbTitle
 #linebreak()
 #linebreak()
 / DVD: Digital Versatile Disc
@@ -188,91 +125,35 @@ keyword1; keyword2; keyword3
 #pagebreak()
 
 
+
 // List of Figures
 #outline(
-  title: [Seznam obrázků],
+  title: [#figuresListTitle],
   target: figure.where(kind: image)
 )\
 #pagebreak()
 
 
+
 // List of Tables
 #outline(
-  title: [Seznam tabulek],
+  title: [#tablesListTitle],
   target: figure.where(kind: table)
 )\
 #pagebreak()
 
 
-// Chapters
-#show heading: set text(font: "Calibri", weight: "bold", size: 20pt, spacing: 160%)
-=  Kapitola 1
-#show heading: set text(font: "Calibri", weight: "bold", size: 28pt, spacing: 160%)
-= Úvod // Introduction
-\
-#lorem(450)
-#pagebreak()
 
-
-#show heading: set text(font: "Calibri", weight: "bold", size: 20pt, spacing: 160%)
-=  Kapitola 2
-#show heading: set text(font: "Calibri", weight: "bold", size: 28pt, spacing: 160%)
-= Analýza problému // Introduction
-\
-#lorem(400)
-#pagebreak()
-
-
-#show heading: set text(font: "Calibri", weight: "bold", size: 20pt, spacing: 160%)
-=  Kapitola 3
-#show heading: set text(font: "Calibri", weight: "bold", size: 28pt, spacing: 160%)
-= Technické detaily // Technical details
-\
-#lorem(400)
-#pagebreak()
-
-
-#show heading: set text(font: "Calibri", weight: "bold", size: 20pt, spacing: 160%)
-=  Kapitola 4
-#show heading: set text(font: "Calibri", weight: "bold", size: 28pt, spacing: 160%)
-= Závěr // Conclusion
-\
-#lorem(400)
-#pagebreak()
-
-
-// Literature
-#show heading: set text(font: "Calibri", weight: "bold", size: 28pt, spacing: 160%)
-=  Literatura
-\
-#pagebreak()
-
-
-// Apendix
-#show heading: set text(font: "Calibri", weight: "bold", size: 20pt, spacing: 160%)
-=  Příloha A
-#show heading: set text(font: "Calibri", weight: "bold", size: 28pt, spacing: 160%)
-= Něco něco // Conclusion
-#linebreak()
-#lorem(400)
-#pagebreak()
-
-
-#show heading: set text(font: "Calibri", weight: "bold", size: 20pt, spacing: 160%)
-=  Příloha B
-#show heading: set text(font: "Calibri", weight: "bold", size: 28pt, spacing: 160%)
-= Velké obrázky a tabulky // Large images and tables
-\
-#lorem(400)
-#pagebreak()
-
-
-#show heading: set text(font: "Calibri", weight: "bold", size: 20pt, spacing: 160%)
-=  Příloha C
-#show heading: set text(font: "Calibri", weight: "bold", size: 28pt, spacing: 160%)
-= Dlouhý zdrojový kód // Long source code
-\
-#lorem(400)
-
-
-// TESTING:
+// Now continue on your own :)
+// The Contents should update themselves as you write..
+// = Heading1 - A big heading
+// == Heading2 - A smaller heading
+// #linebreak() or \ \ - A blank line (\ can ofc, be used as an escape character)
+// Lorem(int) - Dummy text, replace "int" with a numerical value
+// Typst documentation can be found in "Help" or at:
+// https://typst.app/docs/reference/
+== Chapter 1
+= Introduction
+Place
+\ \
+Holder

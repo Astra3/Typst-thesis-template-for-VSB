@@ -7,7 +7,8 @@
 // Sources / references for the template:
 // 1. https://www.cs.vsb.cz/dvorsky/Download/LaTeX/Czech/BachelorThesis.pdf (LaTeX)
 // 2. https://vizual.vsb.cz/cs/sablony-a-loga/psani-dokumentu/
-// 3. https://homel.vsb.cz/~luk76/students/Urban_Bc.pdf (OUTDATED)
+// 3. https://www.fei.vsb.cz/export/sites/fei/cs/student/zaverecne-prace/files/pokyny_pro_vypracovani_praci.pdf
+// 4. https://homel.vsb.cz/~luk76/students/Urban_Bc.pdf (OUTDATED)
 
 // Special thanks to astra3 on Discord for helping me figure out more intricate markup
 
@@ -47,7 +48,7 @@ year - The year in which you are creating your thesis
 */
 
 #let generateFirstPage(thesisLang1, thesisLang2, fullName, supervisor, year) = {
-  move(dx: -23pt, dy: 0pt, image("CZ-visuals/FEI-ochranna-zona-CZ.png", width: 60%))
+  move(dx: -8mm, dy: 0pt, image("CZ-visuals/FEI-ochranna-zona-CZ.png", height: 3cm))
 
   heading(outlined: false, level: 2)[
     #thesisLang1
@@ -79,7 +80,7 @@ year - The year in which you are creating your thesis
   pagebreak()
 }
 
-#generateFirstPage("Optical Mapping Technology Sequence Mapping Visualization Tool", "Nástroj pro vizualizaci mapování sekvencí technologie optického mapování", "Darin Pytel", "Ing. Michal Vašinek, Ph.D.", 2024)
+#generateFirstPage("Optical Mapping Technology Sequence Mapping Visualization Tool", "Nástroj pro vizualizaci mapování sekvencí technologie optického mapování", "Darin Pytel", "Ing. Michal Vašinek, PhD.", 2024)
 
 
 // Thesis assignment
@@ -368,7 +369,7 @@ Check the docs for more details.
 #align(center)[
 #rotate(90deg)[
 #figure(
-    table( // TODO: Stylise table borders properly
+    table(
       columns: 2,
       [*Amount*], [*Ingredient*],
       [360g], [Baking flour],

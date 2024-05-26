@@ -22,7 +22,8 @@
 // Sources / references for the template:
 // 1. https://www.cs.vsb.cz/dvorsky/Download/LaTeX/Czech/BachelorThesis.pdf (LaTeX)
 // 2. https://vizual.vsb.cz/cs/sablony-a-loga/psani-dokumentu/
-// 3. https://homel.vsb.cz/~luk76/students/Urban_Bc.pdf (OUTDATED)
+// 3. https://www.fei.vsb.cz/export/sites/fei/cs/student/zaverecne-prace/files/pokyny_pro_vypracovani_praci.pdf
+// 4. https://homel.vsb.cz/~luk76/students/Urban_Bc.pdf (OUTDATED)
 
 // Special thanks to astra3 on Discord for helping me figure out more intricate markup
 
@@ -34,10 +35,10 @@
 
 #let language = "en"
 
-#let template(doc) = {
+#let template(doc) = { // Size by default is A4, uncomment for Dvorsky us-letter
   set page(
-    //width: 50cm,
-    //height: 50cm,
+    //width: 216mm,
+    //height: 279mm,
     margin: (x: 2.5cm),
     paper: "a4"
   )
@@ -79,17 +80,17 @@
 
 #let generateFirstPage(thesisLang1, thesisLang2, fullName, supervisor, year, language) = {
   if language == "cs" {
-    move(dx: -21pt,
+    move(dx: -8mm,
       dy: 0pt,
       image("CZ-visuals/FEI-ochranna-zona-CZ.png",
-        width: 60%
+        height: 3cm
       )
     )
   } else {
-        move(dx: -18pt,
+        move(dx: -8mm,
       dy: 0pt,
       image("EN-visuals/FEI-ochranna-zona-EN.png",
-        width: 60%
+        height: 3cm
       )
     )
   }
@@ -156,7 +157,7 @@
   // Acknowledgement
   align(bottom)[
     #heading(outlined: false, level: 2)[
-    #if language == "cs" [Poděkování] else [Acknowledgement]
+    #if language == "cs" [Poděkování] else [Acknowledgment]
   ]
   \
   #ackText

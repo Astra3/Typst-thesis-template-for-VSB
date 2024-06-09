@@ -10,6 +10,9 @@
   "keyword 2",
 )
 
+// Edit this variable if you're in more nested folders, i.e. when using the template as a git submodule
+#let templFolder = "thesis_template/"
+
 #set document(
   title: title,
   author: (author),
@@ -23,7 +26,7 @@
 
 // Imports template
 // MAKE SURE YOU HAVE CALIBRI FONTS INSTALLED (or imported, if using the online version of typst)
-#import "thesis_template/template.typ" as temp
+#import templFolder + "template.typ" as temp
 
 // Comment above and uncomment below to use paragraph spacing instead of first line indent
 #show: temp.template
@@ -194,11 +197,15 @@ some text here
 
 = Conclusion
 
-/ Term: hello @house
+/ Term: hello @house[p. 358] @halting
 / Secon term: #lorem(30) @wwdc-network
 / Halting: it is something @halting
 
-#bibliography("main_bibliography.yml")
+#bibliography(
+  "main_bibliography.yml",
+  // this style is required by the styleguide
+  style: templFolder + "iso690-numeric-brackets-cs.csl"
+)
 
 // Start appendix
 #show: temp.appendix

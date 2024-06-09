@@ -4,7 +4,7 @@
 #import "misc.typ": *
 
 // TODO support for thesis other than bachelor's is not finished
-// Ph. D. thesis has some additional requirements
+// PhD thesis has some additional requirements
 
 /*
 Template author: Dr00g on Discord / Dr00gy on GitHub and Astra3

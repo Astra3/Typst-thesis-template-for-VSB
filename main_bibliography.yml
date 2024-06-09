@@ -1,0 +1,46 @@
+# don't forget the docs: https://github.com/typst/hayagriva/blob/main/docs/file-format.md
+
+harry:
+  type: Book
+  title: Harry Potter and the Order of the Phoenix
+  author: Rowling, J. K.
+  volume: 5
+  page-total: 768
+  date: 2003-06-21
+
+house:
+  type: Book
+  title: "House of Leaves: The Remastered Full-Color Edition"
+  author: Danielewski, Mark Z.
+  edition: 2
+  date: 2000-03-07
+  publisher: Pantheon
+  serial-number:
+    isbn: 9780375703768
+
+wwdc-network:
+  type: Article
+  author: ["Mehta, Jiten", "Kinnear, Eric"]
+  title: Boost Performance and Security with Modern Networking
+  date: 2020-06-26
+  parent:
+    - type: Conference
+      title: World Wide Developer Conference 2020
+      organization: Apple Inc.
+      location: Mountain View, CA
+    - type: Video
+      runtime: "00:13:42"
+      url: https://developer.apple.com/videos/play/wwdc2020/10111/
+
+electronic:
+  type: Web
+  title: Ishkur's Guide to Electronic Music
+  serial-number: v2.5
+  author: Ishkur
+  url: http://www.techno.org/electronic-music-guide/
+
+halting:
+  type: Web
+  title: Halting problem --- Wikipedia, The Free Encyclopedia
+  year: 2024-05-31
+  url: https://en.wikipedia.org/w/index.php?title=Halting_problem&oldid=1226634338

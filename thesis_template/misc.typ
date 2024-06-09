@@ -29,7 +29,7 @@
       selector(heading.where(level: 1)).after(here()),
     ).first()
 
-    // finds if the heading after current page is on the current page
+    // Checks if the heading on the next page is the same as on the current page
     if headingAfter.location().page() == here().page() {
       if headerHeadingPage {headerHeading(headingAfter.body)}
     } else {

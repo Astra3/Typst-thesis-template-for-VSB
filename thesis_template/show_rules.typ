@@ -1,4 +1,4 @@
-#let template(body) = {
+#let template(firstLineIndent: true, body) = {
   set page(
     margin: 2.5cm,
     // Default size from the official styleguide is "a4", however, the official latex template uses "us-letter" if you're a masochist
@@ -36,13 +36,12 @@
   set par(
     leading: 1.2em, // Basically 120% of the font size
     justify: true,
-    first-line-indent: .5cm,  // Line indenting is on by default
+    first-line-indent: if firstLineIndent {.5cm} else {0pt},  // Line indenting is on by default
   )
 
-  // If you want spacing instead of line indenting, set it here and uncomment above
-  //show par: set block(
-  //  spacing: 2em,
-  //)
+  show par: set block(
+    spacing: if firstLineIndent {1.2em} else {2em},
+  )
 
   set list(indent: 1.5em)
   set enum(indent: 1.5em)

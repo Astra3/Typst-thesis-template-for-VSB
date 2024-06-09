@@ -25,7 +25,9 @@
 // MAKE SURE YOU HAVE CALIBRI FONTS INSTALLED (or imported, if using the online version of typst)
 #import "thesis_template/template.typ" as temp
 
+// Comment above and uncomment below to use paragraph spacing instead of first line indent
 #show: temp.template
+//#show: temp.template.with(firstLineIndent: true)
 
 /*
 The very first page:
@@ -116,6 +118,8 @@ All of the abstracts. Abstract should take about 10 lines.
 #lorem(50)
 
 === Third Heading
+
+#lorem(50)
 
 #lorem(50)
 

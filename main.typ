@@ -161,6 +161,28 @@ Odkaz na @random_table[Tabulku]
 ) <random_table>
 
 
+// Idealy you'd create a function or a show rule to have your table style a bit more consistent
+#let nohline = table.hline(stroke: none)
+#figure(
+  table(
+    columns: (auto, auto, auto, auto, auto, auto),
+    align: bottom + left,
+    stroke: (top: 1pt, bottom: 1pt, x: none),
+    table.header(
+      table.cell(rowspan: 2)[Pokus],
+      table.cell(rowspan: 2)[A],
+      table.cell(colspan: 2)[Algoritmus 1],
+      table.cell(colspan: 2)[Algoritmus 2],
+      [B], [C], [D], [E]
+    ),
+    [Hydrochloric acid], [12.0], [92.1], [104], [16.6], [104], nohline,
+    ..for i in range(6) {([106],)}, nohline,
+    ..for i in range(6) {([206],)},
+  ),
+  caption: "A more customized table, keep your table style consistent tho!"
+)
+
+
 = Automatic page break with heading
 
 some text here

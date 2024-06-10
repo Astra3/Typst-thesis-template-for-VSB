@@ -55,8 +55,6 @@
     width: 100%
   )
 
-  // If you want to set custom monospace font, do it here
-  //show raw: set text(font: "Source Code Pro")
   show raw.where(block: false): set text(weight: "semibold")
 
   set math.equation(numbering: "(1)")

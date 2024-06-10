@@ -20,10 +20,6 @@
   keywords: englishKeywords,
 )
 
-// SET YOUR LANGUAGE HERE CORRECTLY
-// use "cs" or "en", "sk" is not supported by typst
-#set text(lang: "en")
-
 // Imports template
 // MAKE SURE YOU HAVE CALIBRI FONTS INSTALLED (or imported, if using the online version of typst)
 #import templFolder + "template.typ" as temp
@@ -31,6 +27,17 @@
 // Comment above and uncomment below to use paragraph spacing instead of first line indent
 #show: temp.template
 //#show: temp.template.with(firstLineIndent: true)
+
+#set text(
+  // SET YOUR LANGUAGE HERE CORRECTLY
+  // use "cs" or "en", "sk" is not supported by typst
+  lang: "en",
+  // Template uses Calibri by default, if you want to overwrite that (guideline allows for more fonts, see links in template.typ), do it here
+  //font: "Palatino Linotype",
+)
+
+// If you want to set custom monospace font, do it here
+//#show raw: set text(font: "Source Code Pro")
 
 /*
 The very first page:

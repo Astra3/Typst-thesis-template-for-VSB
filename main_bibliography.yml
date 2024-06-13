@@ -8,6 +8,16 @@ harry:
   page-total: 768
   date: 2003-06-21
 
+hebrew-bible:
+  type: Book
+  title: Hebrew Bible
+  date: -799
+
+bible:
+  type: Book
+  title: Holman Christian Standard Bible
+  date: 2009
+
 house:
   type: Book
   title: "House of Leaves: The Remastered Full-Color Edition"

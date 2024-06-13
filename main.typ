@@ -87,9 +87,18 @@ All of the abstracts. Abstract should take about 10 lines.
   //slovakAbstract: [nie je to zadarmo],
   //slovakKeywords: ("kľúčové slovo 1", "kľúčové slovo 2"),
   // You can also add a quote, if you feel like it
+  // and get insanely creative with it
   quote: quote(
-    [_Ohne Musik wäre das Leben ein Irrthum._ #footnote([Translation: Without music, life would be a mistake.])],
-    block: true, attribution: "Friedrich Nietzsche"),
+    [
+      #text(lang: "he")[
+        ויאמר משה אל יהוה בי אדני לא איש דברים אנכי גם מתמול גם משלשם גם מאז דברך אל עבדך כי כבד פה וכבד לשון אנכי׃
+      ]
+    ],
+    attribution: [
+      _The Bible_, Exodus 4:10 #footnote([But Moses replied to the LORD, "Please, Lord, I have never been eloquent--either in the past or recently or since You have been speaking to Your servant--because I am slow and hesitant in speech." @bible]) @hebrew-bible
+    ],
+    block: true,
+  ),
   acknowledgment: [Thank you],
 )
 

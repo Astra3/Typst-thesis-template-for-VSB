@@ -30,7 +30,7 @@
 
 #set text(
   // SET YOUR LANGUAGE HERE CORRECTLY
-  // use "cs" or "en", "sk" is not supported by typst
+  // use "cs" or "en", "sk" is not fully supported by typst
   lang: "en",
   // Template uses Calibri by default, if you want to overwrite that (guideline allows for more fonts, see links in template.typ), do it here
   //font: "Palatino Linotype",
@@ -83,6 +83,13 @@ All of the abstracts. Abstract should take about 10 lines.
   [it's not free],
   czechKeywords,
   englishKeywords,
+  // If writing in Slovak, you can optionally provide keywords and abstracts in Slovak
+  //slovakAbstract: [nie je to zadarmo],
+  //slovakKeywords: ("kľúčové slovo 1", "kľúčové slovo 2"),
+  // You can also add a quote, if you feel like it
+  quote: quote(
+    [_Ohne Musik wäre das Leben ein Irrthum._ #footnote([Translation: Without music, life would be a mistake.])],
+    block: true, attribution: "Friedrich Nietzsche"),
   acknowledgment: [Thank you],
 )
 

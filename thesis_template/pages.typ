@@ -58,26 +58,46 @@
 
 
 // Pages before Contents
-#let abstracts(czechAbstract, englishAbstract, czechKeywords, englishKeywords, acknowledgment: none) = {
+#let abstracts(
+  czechAbstract, englishAbstract,
+  czechKeywords, englishKeywords,
+  slovakAbstract: none, slovakKeywords: none,
+  quote: none,
+  acknowledgment: none,
+  ) = {
   // Abstract
-  heading(outlined: false, level: 2)[Abstrakt]
-  czechAbstract
+  grid(
+    rows: (1fr, 1fr, 1fr),
+    {
+      heading(outlined: false, level: 2)[Abstrakt]
+      czechAbstract
 
-  heading(outlined: false, level: 2)[Klíčová slova]
-  czechKeywords.join(", ")
+      heading(outlined: false, level: 2)[Klíčová slova]
+      czechKeywords.join(", ")
+    },
+    {
+      heading(outlined: false, level: 2)[Abstract]
+      englishAbstract
 
-  v(5cm)
+      heading(outlined: false, level: 2)[Keywords]
+      englishKeywords.join(", ")
+    },
+    if slovakAbstract != none and slovakKeywords != none {
+      heading(outlined: false, level: 2)[Abstrakt]
+      slovakAbstract
 
-  heading(outlined: false, level: 2)[Abstract]
-  englishAbstract
-
-  heading(outlined: false, level: 2)[Keywords]
-  englishKeywords.join(", ")
-
+      heading(outlined: false, level: 2)[Kľúčové slová]
+      slovakKeywords.join(", ")
+    },
+  )
 
   // Acknowledgement
   if acknowledgment != none {
     pagebreak()
+    if quote != none {
+      quote
+    }
+
     align(bottom)[
       #heading(outlined: false, level: 2)[
         #context(if text.lang == "en" [Acknowledgment] else [Poděkování])

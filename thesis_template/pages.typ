@@ -64,30 +64,39 @@
   slovakAbstract: none, slovakKeywords: none,
   quote: none,
   acknowledgment: none,
+  abstractSpacing: 2.5cm,
   ) = {
+  //show heading: set block(spacing: 1em)
   // Abstract
   grid(
-    rows: (1fr, 1fr, 1fr),
+    rows: (auto, auto, auto),
+    row-gutter: abstractSpacing,
     {
-      heading(outlined: false, level: 2)[Abstrakt]
-      czechAbstract
+      text({
+        heading(outlined: false, level: 2)[Abstrakt]
+        czechAbstract
 
-      heading(outlined: false, level: 2)[Klíčová slova]
-      czechKeywords.join(", ")
+        heading(outlined: false, level: 2)[Klíčová slova]
+        czechKeywords.join(", ")
+      }, lang: "cs")
     },
     {
-      heading(outlined: false, level: 2)[Abstract]
-      englishAbstract
+      text({
+        heading(outlined: false, level: 2)[Abstract]
+        englishAbstract
 
-      heading(outlined: false, level: 2)[Keywords]
-      englishKeywords.join(", ")
+        heading(outlined: false, level: 2)[Keywords]
+        englishKeywords.join(", ")
+      }, lang: "en")
     },
     if slovakAbstract != none and slovakKeywords != none {
-      heading(outlined: false, level: 2)[Abstrakt]
-      slovakAbstract
+      text({
+        heading(outlined: false, level: 2)[Abstrakt]
+        slovakAbstract
 
-      heading(outlined: false, level: 2)[Kľúčové slová]
-      slovakKeywords.join(", ")
+        heading(outlined: false, level: 2)[Kľúčové slová]
+        slovakKeywords.join(", ")
+      }, lang: "sk")
     },
   )
 

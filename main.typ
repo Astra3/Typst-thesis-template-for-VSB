@@ -100,6 +100,8 @@ All of the abstracts. Abstract should take about 10 lines.
     block: true,
   ),
   acknowledgment: [Thank you],
+  // In case you need to set custom abstract spacing
+  //abstractSpacing: 2.5cm,
 )
 
 
@@ -149,7 +151,7 @@ All of the abstracts. Abstract should take about 10 lines.
 
 #lorem(50)
 
-#quote(attribution: [I made it up], block: true)[#lorem(30)]
+#quote(lorem(50), attribution: [I made it up], block: true)
 
 #lorem(50) And some inline math $5 + 10 = 15$.
 

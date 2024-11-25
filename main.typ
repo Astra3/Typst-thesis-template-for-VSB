@@ -24,9 +24,9 @@
 // MAKE SURE YOU HAVE CALIBRI FONTS INSTALLED (or imported, if using the online version of typst)
 #import templFolder + "template.typ" as temp
 
-// Comment above and uncomment below to use paragraph spacing instead of first line indent
+// Comment above and uncomment below to use (increase) paragraph spacing instead of first line indent
 #show: temp.template
-//#show: temp.template.with(firstLineIndent: true)
+// #show: temp.template.with(firstLineIndent: false)
 
 #set text(
   // SET YOUR LANGUAGE HERE CORRECTLY
@@ -43,7 +43,7 @@
 The very first page:
 Params:
 1. Thesis title in Czech or English
-2. Title again in the other language 
+2. Title again in the other language
 3. Your full name
 4. Supervisor
 Optional params:
@@ -155,9 +155,11 @@ All of the abstracts. Abstract should take about 10 lines.
 
 #lorem(50) And some inline math $5 + 10 = 15$.
 
-$ sum_(k=0)^n k
-  &= 1 + ... n \ 
-  &= (n(n + 1)) / 2 $
+$
+  sum_(k=0)^n k
+  &= 1 + ... n \
+  &= (n(n + 1)) / 2
+$
 
 Odkaz na @random_table[Tabulku]
 
@@ -168,12 +170,13 @@ Odkaz na @random_table[Tabulku]
 + numbered
 + numbered a inline `source code`
 
-#figure([
-  ```python
-  print("hello")
-  def add(a: int, b: int):
-      return a + b
-  ```],
+#figure(
+  [
+    ```python
+    print("hello")
+    def add(a: int, b: int):
+        return a + b
+    ```],
   caption: "hello",
 )
 
@@ -201,13 +204,16 @@ Odkaz na @random_table[Tabulku]
       table.cell(rowspan: 2)[A],
       table.cell(colspan: 2)[Algoritmus 1],
       table.cell(colspan: 2)[Algoritmus 2],
-      [B], [C], [D], [E]
+      [B],
+      [C],
+      [D],
+      [E],
     ),
     [Hydrochloric acid], [12.0], [92.1], [104], [16.6], [104], nohline,
-    ..for i in range(6) {([106],)}, nohline,
-    ..for i in range(6) {([206],)},
+    ..for i in range(6) { ([106],) }, nohline,
+    ..for i in range(6) { ([206],) },
   ),
-  caption: "A more customized table, keep your table style consistent tho!"
+  caption: "A more customized table, keep your table style consistent tho!",
 )
 
 
@@ -217,7 +223,7 @@ some text here
 
 #figure(
   image("images/bacteria.jpg", height: 5cm),
-  caption: [Image of _Treponema pallidum_]
+  caption: [Image of _Treponema pallidum_],
 )
 
 = Conclusion

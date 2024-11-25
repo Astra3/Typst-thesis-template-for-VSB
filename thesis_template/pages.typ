@@ -13,14 +13,14 @@
   )
   move(
     dx: -8mm,
-    context(
+    context (
       image(
-        if text.lang == "en" {"logos/FEI EN.svg"} else {"logos/FEI CZ.svg"},
+        if text.lang == "en" { "logos/FEI EN.svg" } else { "logos/FEI CZ.svg" },
         height: 3cm,
       )
-    )
+    ),
   )
-  
+
   heading(outlined: false, level: 2)[#thesisTitle]
 
   v(1.5em)
@@ -35,19 +35,21 @@
 
   align(bottom)[
     #set text(size: 14pt)
-    #context([
-      #if type == "bachelor" {
-        if text.lang == "en" [Bachelor thesis] else [Bakalářská práce]
-      } else if type == "bachelor-practice" {
-        if text.lang == "en" [Bachelor professional practice] else [Bakalářská praxe]
-      } else if type == "master" {
-        if text.lang == "en" [Master thesis] else [Diplomová práce]
-      } else if type == "phd" {
-        if text.lang == "en" [PhD thesis] else [Disertační práce]
-      }
+    #context (
+      [
+        #if type == "bachelor" {
+          if text.lang == "en" [Bachelor thesis] else [Bakalářská práce]
+        } else if type == "bachelor-practice" {
+          if text.lang == "en" [Bachelor professional practice] else [Bakalářská praxe]
+        } else if type == "master" {
+          if text.lang == "en" [Master thesis] else [Diplomová práce]
+        } else if type == "phd" {
+          if text.lang == "en" [PhD thesis] else [Disertační práce]
+        }
 
-      #if text.lang == "en" [Supervisor:] else [Vedoucí práce:]
-    ])
+        #if text.lang == "en" [Supervisor:] else [Vedoucí práce:]
+      ]
+    )
     #supervisor
 
 
@@ -59,44 +61,56 @@
 
 // Pages before Contents
 #let abstracts(
-  czechAbstract, englishAbstract,
-  czechKeywords, englishKeywords,
-  slovakAbstract: none, slovakKeywords: none,
+  czechAbstract,
+  englishAbstract,
+  czechKeywords,
+  englishKeywords,
+  slovakAbstract: none,
+  slovakKeywords: none,
   quote: none,
   acknowledgment: none,
   abstractSpacing: 2.5cm,
-  ) = {
+) = {
   //show heading: set block(spacing: 1em)
   // Abstract
   grid(
     rows: (auto, auto, auto),
     row-gutter: abstractSpacing,
     {
-      text({
-        heading(outlined: false, level: 2)[Abstrakt]
-        czechAbstract
+      text(
+        {
+          heading(outlined: false, level: 2)[Abstrakt]
+          czechAbstract
 
-        heading(outlined: false, level: 2)[Klíčová slova]
-        czechKeywords.join(", ")
-      }, lang: "cs")
+          heading(outlined: false, level: 2)[Klíčová slova]
+          czechKeywords.join(", ")
+        },
+        lang: "cs",
+      )
     },
     {
-      text({
-        heading(outlined: false, level: 2)[Abstract]
-        englishAbstract
+      text(
+        {
+          heading(outlined: false, level: 2)[Abstract]
+          englishAbstract
 
-        heading(outlined: false, level: 2)[Keywords]
-        englishKeywords.join(", ")
-      }, lang: "en")
+          heading(outlined: false, level: 2)[Keywords]
+          englishKeywords.join(", ")
+        },
+        lang: "en",
+      )
     },
     if slovakAbstract != none and slovakKeywords != none {
-      text({
-        heading(outlined: false, level: 2)[Abstrakt]
-        slovakAbstract
+      text(
+        {
+          heading(outlined: false, level: 2)[Abstrakt]
+          slovakAbstract
 
-        heading(outlined: false, level: 2)[Kľúčové slová]
-        slovakKeywords.join(", ")
-      }, lang: "sk")
+          heading(outlined: false, level: 2)[Kľúčové slová]
+          slovakKeywords.join(", ")
+        },
+        lang: "sk",
+      )
     },
   )
 
@@ -109,7 +123,7 @@
 
     align(bottom)[
       #heading(outlined: false, level: 2)[
-        #context(if text.lang == "en" [Acknowledgment] else [Poděkování])
+        #context (if text.lang == "en" [Acknowledgment] else [Poděkování])
       ]
       #acknowledgment
     ]

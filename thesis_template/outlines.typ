@@ -9,25 +9,29 @@
 
 #let listImages = {
   show outline: set heading(outlined: true)
-    outline(
-      title: context(if text.lang == "en" [List of Figures] else [Seznam obrázků]),
-      target: figure.where(kind: image),
-    )
+  outline(
+    title: context (
+      if text.lang == "en" [List of Figures] else [Seznam obrázků]
+    ),
+    target: figure.where(kind: image),
+  )
 }
 
 #let listTables = {
   show outline: set heading(outlined: true)
   outline(
-    title: context(if text.lang == "en" [List of Tables] else [Seznam tabulek]),
+    title: context (
+      if text.lang == "en" [List of Tables] else [Seznam tabulek]
+    ),
     target: figure.where(kind: table),
   )
 }
 
 #let listSymbols(symbols) = {
   symbols = symbols.sorted(key: it => it.at(0))
-  heading(
-    level: 1,
-  )[#context(if text.lang == "en" [List of symbols and abbreviations] else [Seznam použitých zkratek a symbolů])]
+  heading(level: 1)[#context (
+      if text.lang == "en" [List of symbols and abbreviations] else [Seznam použitých zkratek a symbolů]
+    )]
   grid(
     columns: (25%, auto, auto),
     gutter: 15pt,

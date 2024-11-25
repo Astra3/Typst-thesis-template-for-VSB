@@ -37,9 +37,6 @@
     leading: 1.2em, // Basically 120% of the font size
     justify: true,
     first-line-indent: if firstLineIndent {.5cm} else {0pt},  // Line indenting is on by default
-  )
-
-  show par: set block(
     spacing: if firstLineIndent {1.2em} else {2em},
   )
 
@@ -52,7 +49,7 @@
   show raw.where(block: true): set block(
     stroke: (y: 1pt),
     inset: .8em,
-    width: 100%
+    width: 100%,
   )
 
   show raw.where(block: false): set text(weight: "semibold")

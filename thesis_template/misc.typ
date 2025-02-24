@@ -20,21 +20,19 @@
     ]
   }
 
-  set page(header: context {
-    let headingBefore = query(
-      selector(heading.where(level: 1)).before(here()),
-    ).last()
+  set page(
+    header: context {
+      let headingBefore = query(selector(heading.where(level: 1)).before(here())).last()
 
-    let headingAfter = query(
-      selector(heading.where(level: 1)).after(here()),
-    ).first()
+      let headingAfter = query(selector(heading.where(level: 1)).after(here())).first()
 
-    // Checks if the heading on the next page is the same as on the current page
-    if headingAfter.location().page() == here().page() {
-      if headerHeadingPage { headerHeading(headingAfter.body) }
-    } else {
-      headerHeading(headingBefore.body)
-    }
-  })
+      // Checks if the heading on the next page is the same as on the current page
+      if headingAfter.location().page() == here().page() {
+        if headerHeadingPage { headerHeading(headingAfter.body) }
+      } else {
+        headerHeading(headingBefore.body)
+      }
+    },
+  )
   body
 }

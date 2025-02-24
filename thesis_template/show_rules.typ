@@ -13,13 +13,11 @@
   )
 
   show heading: set text(
-    // TODO spacing is questionable
     spacing: .3em,
     weight: "bold",
   )
 
   // Styling of headers and normal text
-  // TODO font size is questionable
   show heading.where(level: 1): set block(spacing: 1.5cm)
   show heading.where(level: 1): set text(size: 28pt)
   show heading.where(level: 1): it => [
@@ -36,8 +34,9 @@
   set par(
     leading: 1.2em, // Basically 120% of the font size
     justify: true,
-    first-line-indent: if firstLineIndent {.5cm} else {0pt},  // Line indenting is on by default
-    spacing: if firstLineIndent {1.2em} else {2em},
+    // TODO we might want to set all: true
+    first-line-indent: if firstLineIndent { .5cm } else { 0pt }, // Line indenting is on by default
+    spacing: if firstLineIndent { 1.2em } else { 2em },
   )
 
   set list(indent: 1.5em)

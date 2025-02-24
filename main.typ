@@ -24,7 +24,7 @@
 // MAKE SURE YOU HAVE CALIBRI FONTS INSTALLED (or imported, if using the online version of typst)
 #import templFolder + "template.typ" as temp
 
-// Comment above and uncomment below to use (increase) paragraph spacing instead of first line indent
+// Comment above and uncomment below to use (increase) paragraph spacing instead of first line indent, guidelines don't mention the correct way
 #show: temp.template
 // #show: temp.template.with(firstLineIndent: false)
 
@@ -235,7 +235,7 @@ some text here
 #bibliography(
   "main_bibliography.yml",
   // this style is required by the styleguide
-  style: templFolder + "iso690-numeric-brackets-cs.csl"
+  style: templFolder + "iso690-numeric-brackets-cs.csl",
 )
 
 // Start appendix

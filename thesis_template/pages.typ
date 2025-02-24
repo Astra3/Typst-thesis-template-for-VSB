@@ -3,7 +3,7 @@
   thesisDescription,
   fullName,
   supervisor,
-  type: "bachelor",  // bachelor, bachelor-practice, master or phd
+  type: "bachelor", // bachelor, bachelor-practice, master or phd
   year: datetime.today().year(),
 ) = {
   // Overwrite some global rules

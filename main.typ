@@ -32,8 +32,9 @@
   // use "cs" or "en", "sk" is not fully supported by typst
   // when you're using Czech, all conjunctions get an unbreabakle space appended by the template, to prevent them from displaying as last characters on the line
   lang: "en",
-  // Template uses Calibri by default, if you want to overwrite that (guideline allows for more fonts, see links in template.typ), do it below
-  // font: "Palatino Linotype",
+  // Template uses Calibri by default (because it's very available and we optimized font sizes for it), if you want to overwrite that (guideline allows for more fonts, see links in template.typ), do it below
+  // I peronally recommend Carlito as sans-serif and Tex Gyre Pangella (based on Palatino)
+  // font: "Tex Gyre Pagella",
 )
 
 // If you want to set custom monospace font, do it here

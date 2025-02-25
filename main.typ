@@ -24,20 +24,20 @@
 // MAKE SURE YOU HAVE CALIBRI FONTS INSTALLED (or imported, if using the online version of typst)
 #import templFolder + "template.typ" as temp
 
-// Comment above and uncomment below to use (increase) paragraph spacing instead of first line indent, guidelines don't mention the correct way
-#show: temp.template
-// #show: temp.template.with(firstLineIndent: false)
+// Uncomment the parameter in paranthesis to disable first line indent and increase paragraph spacing. Guidelines don't mention any *correct* way, but latex template uses first line indent.
+#show: temp.template.with(/* firstLineIndent: false */ )
 
 #set text(
   // SET YOUR LANGUAGE HERE CORRECTLY
   // use "cs" or "en", "sk" is not fully supported by typst
+  // when you're using Czech, all conjunctions get an unbreabakle space appended by the template, to prevent them from displaying as last characters on the line
   lang: "en",
-  // Template uses Calibri by default, if you want to overwrite that (guideline allows for more fonts, see links in template.typ), do it here
-  //font: "Palatino Linotype",
+  // Template uses Calibri by default, if you want to overwrite that (guideline allows for more fonts, see links in template.typ), do it below
+  // font: "Palatino Linotype",
 )
 
 // If you want to set custom monospace font, do it here
-//#show raw: set text(font: "Source Code Pro")
+// #show raw: set text(font: "Source Code Pro")
 
 /*
 The very first page:
@@ -84,8 +84,8 @@ All of the abstracts. Abstract should take about 10 lines.
   czechKeywords,
   englishKeywords,
   // If writing in Slovak, you can optionally provide keywords and abstracts in Slovak
-  //slovakAbstract: [nie je to zadarmo],
-  //slovakKeywords: ("kľúčové slovo 1", "kľúčové slovo 2"),
+  // slovakAbstract: [nie je to zadarmo],
+  // slovakKeywords: ("kľúčové slovo 1", "kľúčové slovo 2"),
   // You can also add a quote, if you feel like it
   // and get insanely creative with it
   quote: quote(
@@ -101,7 +101,7 @@ All of the abstracts. Abstract should take about 10 lines.
   ),
   acknowledgment: [Thank you],
   // In case you need to set custom abstract spacing
-  //abstractSpacing: 2.5cm,
+  // abstractSpacing: 2.5cm,
 )
 
 
@@ -136,6 +136,10 @@ All of the abstracts. Abstract should take about 10 lines.
 // Start of your text
 
 = Introduction
+
+#text(lang: "cs")[
+  #lorem(12) Zalomení, spojka a bude zalomena na nový řádek.
+]
 
 #lorem(20)
 

@@ -18,4 +18,4 @@
 4. Indent settings
 
 ## What the template can't do yet
-- Conjunctions are not prefixed with an unbreakable space, we don't know how to do it yet
+- Nothing that is known to us, we can do it all 😎

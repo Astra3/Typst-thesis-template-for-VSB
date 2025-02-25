@@ -34,8 +34,8 @@
   set par(
     leading: 1.2em, // Basically 120% of the font size
     justify: true,
-    // TODO we might want to set all: true
-    first-line-indent: if firstLineIndent { .5cm } else { 0pt }, // Line indenting is on by default
+    // line indenting is on by default, all parameter is kept as default, like in latex template
+    first-line-indent: if firstLineIndent { .5cm } else { 0pt },
     spacing: if firstLineIndent { 1.2em } else { 2em },
   )
 
@@ -43,8 +43,6 @@
   set enum(indent: 1.5em)
 
   show figure.where(kind: table): set figure.caption(position: top)
-  // this will be working in next typst release
-  show figure.where(kind: raw): set align(left)
   show raw.where(block: true): set block(
     stroke: (y: 1pt),
     inset: .8em,
@@ -52,6 +50,13 @@
   )
 
   show raw.where(block: false): set text(weight: "semibold")
+
+  // appends line break to all possible czech conjunctions
+  show text.where(lang: "cs"): it => {
+    let conjunctions = ("a", "A", "k", "K", "i", "I", "u", "U", "s", "S", "o", "O", "v", "V")
+    show regex(" [" + conjunctions.join() + "] "): it => [ #it.text.trim()~]
+    it
+  }
 
   set math.equation(numbering: "(1)")
   body

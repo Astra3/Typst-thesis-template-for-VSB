@@ -116,6 +116,7 @@ All of the abstracts. Abstract should take about 10 lines.
 
 
 // List of symbols and abbreviations, automatically alphabetically sorted
+// you can use packages libe abbr or acrostatic for this, if you want more automatic handling
 #temp.listSymbols((
   ("html", "Hyper Text Modeling Language"),
   ("HTML", "language"),
@@ -174,6 +175,8 @@ Odkaz na @random_table[Tabulku]
 + numbered
 + numbered a inline `source code`
 
+// If you want more advanced code blocks, look at https://typst.app/universe/package/codly/
+// the style of the ones here is copied from latex template
 #figure(
   [
     ```python

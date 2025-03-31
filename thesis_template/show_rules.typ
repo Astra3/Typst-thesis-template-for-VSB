@@ -43,6 +43,10 @@
   set enum(indent: 1.5em)
 
   show figure.where(kind: table): set figure.caption(position: top)
+
+  // TODO remove this once fix in typst gets released
+  // PR at https://github.com/typst/typst/pull/6101
+  show figure.where(kind: raw): set figure(supplement: "Výpis")
   show raw.where(block: true): set block(
     stroke: (y: 1pt),
     inset: .8em,

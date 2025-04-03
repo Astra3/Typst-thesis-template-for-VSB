@@ -73,12 +73,12 @@
 }
 
 #let start_heading_numbering(body, max_level: 3) = {
-  set heading(outlined: false, bookmarked: true)
-  for i in range(1, max_level + 1) {
-    body = {
-      show heading.where(level: i): set heading(outlined: true, numbering: "1.1")
-      body
-    }
-  }
+  set heading(
+    numbering: (..nums) => {
+      if nums.pos().len() <= max_level {
+        numbering("1.1", ..nums)
+      }
+    },
+  )
   body
 }

@@ -133,7 +133,9 @@ All of the abstracts. Abstract should take about 10 lines.
 
 
 // Start heading numbering
-#set heading(numbering: "1.1.1")
+// only headings up to and including max_level are shown in the outline and are numbered
+// all headings are be included in PDF's outline
+#show: temp.start_heading_numbering/* .with(max_level: 3) */
 
 // Start of your text
 

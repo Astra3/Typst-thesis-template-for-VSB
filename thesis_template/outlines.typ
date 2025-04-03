@@ -1,4 +1,4 @@
-#let listChapters = {
+#let listChapters(max_depth: 3) = {
   show outline.entry.where(level: 1): it => {
     set text(size: 1.25em, weight: "bold")
     set block(above: 1.8em)
@@ -7,7 +7,7 @@
 
   set outline.entry(fill: repeat[#h(.6em).])
   // Contents
-  outline(indent: 1.2em)
+  outline(indent: 1.2em, depth: max_depth)
 }
 
 #let listImages = {

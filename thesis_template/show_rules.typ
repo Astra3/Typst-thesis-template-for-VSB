@@ -71,3 +71,14 @@
   set heading(numbering: "A", supplement: [Appendix])
   body
 }
+
+#let start_heading_numbering(body, max_level: 3) = {
+  set heading(outlined: false, bookmarked: true)
+  for i in range(1, max_level + 1) {
+    body = {
+      show heading.where(level: i): set heading(outlined: true, numbering: "1.1")
+      body
+    }
+  }
+  body
+}

@@ -72,10 +72,10 @@
   body
 }
 
-#let start_heading_numbering(body, max_level: 3) = {
+#let start_heading_numbering(body, max_depth: 3) = {
   set heading(
     numbering: (..nums) => {
-      if nums.pos().len() <= max_level {
+      if nums.pos().len() <= max_depth {
         numbering("1.1", ..nums)
       }
     },

@@ -32,7 +32,7 @@
   show heading.where(level: 3): set text(size: 14pt)
 
   set par(
-    leading: 1.2em, // Basically 120% of the font size
+    leading: 1em, // It was the most close to other works, the guidelines only specify spacing for Word
     justify: true,
     // line indenting is on by default, all parameter is kept as default, like in latex template
     first-line-indent: if firstLineIndent { .5cm } else { 0pt },

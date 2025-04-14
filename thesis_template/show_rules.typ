@@ -18,15 +18,16 @@
   )
 
   // Styling of headers and normal text
+  show heading: set par(justify: false)
   show heading.where(level: 1): set block(spacing: 1.5cm)
-  show heading.where(level: 1): set text(size: 28pt)
+  show heading.where(level: 1): set text(size: 25pt)
   show heading.where(level: 1): it => [
     #pagebreak()
     #it
   ]
 
 
-  show heading.where(level: 2): set text(size: 20pt)
+  show heading.where(level: 2): set text(size: 18pt)
   show heading.where(level: 2): set block(spacing: .8cm)
 
   show heading.where(level: 3): set text(size: 14pt)

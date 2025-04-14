@@ -25,7 +25,9 @@
 #import templFolder + "template.typ" as temp
 
 // Uncomment the parameter in paranthesis to disable first line indent and increase paragraph spacing. Guidelines don't mention any *correct* way, but latex template uses first line indent.
-#show: temp.template.with(/* firstLineIndent: false */ )
+#show: temp.template.with(
+  /* firstLineIndent: false */
+)
 
 #set text(
   // SET YOUR LANGUAGE HERE CORRECTLY
@@ -113,7 +115,9 @@ All of the abstracts. Abstract should take about 10 lines.
 // Uncomment this if you don't want chapter title in headers
 // headerHeadingPage sets if a header should be shown on a page starting with header
 #show: temp.headerChapters.with(headerHeadingPage: false)
-#temp.listChapters(/* max_depth: 3 */)
+#temp.listChapters(
+  /* max_depth: 3 */
+)
 
 
 // List of symbols and abbreviations, automatically alphabetically sorted

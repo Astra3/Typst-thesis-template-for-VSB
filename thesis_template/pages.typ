@@ -21,17 +21,17 @@
     ),
   )
 
-  heading(outlined: false, level: 2)[#thesisTitle]
+  set text(spacing: .3em, font: "Calibri")
+  [
+    #v(3em)
 
-  v(1.5em)
+    #text(size: 24pt, weight: "bold")[#thesisTitle]
 
-  set text(spacing: .3em)
+    #text(size: 14pt)[#thesisDescription]
 
-  text(size: 14pt)[#thesisDescription]
-
-  v(2em)
-
-  text(size: 20pt)[#fullName]
+    #v(2em)
+    #text(size: 24pt, weight: "bold")[#fullName]
+  ]
 
   align(bottom)[
     #set text(size: 14pt)

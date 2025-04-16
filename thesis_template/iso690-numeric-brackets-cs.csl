@@ -336,7 +336,7 @@
     <choose>
       <if variable="URL DOI" match="any">
         <group prefix=" [" suffix="]">
-          <text term="accessed" form="short" suffix=".&#160;"/>
+          <text term="citation-number" form="short" suffix=".&#160;"/>
           <date variable="accessed">
             <date-part name="year"/>
             <date-part name="month" form="numeric-leading-zeros" prefix="-"/>
@@ -417,8 +417,8 @@
     <sort>
       <key variable="citation-number"/>
     </sort>
-    <layout prefix="[" suffix="]" delimiter=", ">
-      <group delimiter=" ">
+    <layout prefix="[" suffix="]" delimiter="; ">
+      <group delimiter=", ">
         <text variable="citation-number"/>
         <group delimiter="&#160;">
           <label variable="locator" form="short"/>

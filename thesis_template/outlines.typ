@@ -30,6 +30,16 @@
   )
 }
 
+#let listSourceCodes = {
+  show outline: set heading(outlined: true)
+  outline(
+    title: context (
+      if text.lang == "en" [List of Source Code Listings] else [Seznam výpisů zdrojového kódu]
+    ),
+    target: figure.where(kind: raw),
+  )
+}
+
 #let listSymbols(symbols) = {
   symbols = symbols.sorted(key: it => it.at(0))
   heading(level: 1)[#context (

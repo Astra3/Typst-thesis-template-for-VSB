@@ -128,12 +128,18 @@ All of the abstracts. Abstract should take about 10 lines.
   ("glibc", "GNU C library"),
 ))
 
+// Remove ANY of the list if you don't have any figures of their type
+
 // List of Figures
 #temp.listImages
 
 
 // List of Tables
 #temp.listTables
+
+
+// List of Source Code Listings
+#temp.listSourceCodes
 
 
 // Start heading numbering

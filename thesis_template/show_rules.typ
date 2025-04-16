@@ -47,7 +47,7 @@
 
   // TODO remove this once fix in typst gets released
   // PR at https://github.com/typst/typst/pull/6101
-  show figure.where(kind: raw): set figure(supplement: "Výpis")
+  show figure.where(kind: raw): set figure(supplement: context (if text.lang == "cs" { "Výpis" } else { "Listing" }))
   show raw.where(block: true): set block(
     stroke: (y: 1pt),
     inset: .8em,

@@ -18,4 +18,9 @@
 4. Indent settings
 
 ## What the template can't do yet
-- Nothing that is known to us, we can do it all 😎
+- Ph.D. thesis
+- Slovak language (though it's not supported in typst yet either, you can submit a PR here and to typst)
+
+## What are some things to change
+- It would be nice to use [linguify](https://github.com/typst-community/linguify) package for translations
+

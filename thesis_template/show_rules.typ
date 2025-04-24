@@ -43,6 +43,7 @@
   set list(indent: 1.5em)
   set enum(indent: 1.5em)
 
+  show figure: set block(spacing: 1.8em)
   show figure.where(kind: table): set figure.caption(position: top)
 
   // TODO remove this once fix in typst gets released

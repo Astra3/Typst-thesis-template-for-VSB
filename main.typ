@@ -50,7 +50,7 @@ Params:
 3. Your full name
 4. Supervisor
 Optional params:
-5. Type of your thesis - bachelor, bachelor-practice, master or phd, defaults to bachelor
+5. Type of your thesis - bachelor, bachelor-practice, master, phd, or semestral, defaults to bachelor
 6. Year of the thesis, defaults to current year
 */
 
@@ -58,6 +58,7 @@ Optional params:
   title,
   "Tool for something ig",
   author,
+  type: "bachelor",
   "Ing. Alena Nováková, PhD.",
 )
 

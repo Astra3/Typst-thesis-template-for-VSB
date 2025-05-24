@@ -58,6 +58,7 @@ Optional params:
   title,
   "Tool for something ig",
   author,
+  type: "bachelor",
   "Ing. Alena Nováková, PhD.",
 )
 

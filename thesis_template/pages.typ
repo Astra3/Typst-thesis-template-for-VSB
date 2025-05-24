@@ -45,6 +45,8 @@
           if text.lang == "en" [Master thesis] else [Diplomová práce]
         } else if type == "phd" {
           if text.lang == "en" [PhD thesis] else [Disertační práce]
+        } else if type == "semestral" {
+          if text.lang == "en" [Semestral project] else [Semestrální projekt]
         }
 
         #if text.lang == "en" [Supervisor:] else [Vedoucí práce:]

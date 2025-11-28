@@ -1,3 +1,3 @@
 #!/usr/bin/sh
-typstyle -c 120 format-all
+typstyle -il 120 main.typ thesis_template
 

@@ -1,25 +1,35 @@
+#import "lang.typ" as lang
+
 #let titlePage(
+  /// Title of the thesis
   thesisTitle,
+  /// Thesis description
   thesisDescription,
   fullName,
   supervisor,
-  type: "bachelor", // bachelor, bachelor-practice, master or phd
-  year: datetime.today().year(),
+  thesisType: "bachelor",
+  year: auto,
+  logo: auto,
 ) = {
   // Overwrite some global rules
   set par(
     first-line-indent: 0cm,
     justify: false,
   )
-  move(
-    dx: -8mm,
-    context (
-      image(
-        if text.lang == "en" { "logos/FEI EN.svg" } else { "logos/FEI CZ.svg" },
-        height: 3cm,
-      )
-    ),
-  )
+  if logo == auto {
+    move(
+      // safe zone offset
+      dx: -8mm,
+      context (
+        image(
+          if text.lang == "en" { "logos/FEI EN.svg" } else { "logos/FEI CZ.svg" },
+          height: 3cm,
+        )
+      ),
+    )
+  } else if type(logo) == content {
+    logo
+  }
 
   set text(spacing: .3em, font: "Calibri")
   [
@@ -33,25 +43,26 @@
     #text(size: 24pt, weight: "bold")[#fullName]
   ]
 
-  align(bottom)[
-    #set text(size: 14pt)
-    #context (
-      [
-        #if type == "bachelor" {
-          if text.lang == "en" [Bachelor thesis] else [Bakalářská práce]
-        } else if type == "bachelor-practice" {
-          if text.lang == "en" [Bachelor professional practice] else [Bakalářská praxe]
-        } else if type == "master" {
-          if text.lang == "en" [Master thesis] else [Diplomová práce]
-        } else if type == "phd" {
-          if text.lang == "en" [PhD thesis] else [Disertační práce]
-        } else if type == "semestral" {
-          if text.lang == "en" [Semestral project] else [Semestrální projekt]
-        }
+  if year == auto {
+    year = datetime.today().year()
+  }
 
-        #if text.lang == "en" [Supervisor:] else [Vedoucí práce:]
-      ]
-    )
+  v(1fr)
+  [
+    #set text(size: 14pt)
+    #if thesisType == "bachelor" {
+      lang.ling.linguify("bachelorThesis", from: lang.database)
+    } else if thesisType == "bachelor-practice" {
+      lang.ling.linguify("bachelorPractice", from: lang.database)
+    } else if thesisType == "master" {
+      lang.ling.linguify("masterThesis", from: lang.database)
+    } else if thesisType == "phd" {
+      lang.ling.linguify("phdThesis", from: lang.database)
+    } else if thesisType == "semestral" {
+      lang.ling.linguify("semestralProject", from: lang.database)
+    }
+
+    #lang.ling.linguify("supervisor", from: lang.database)
     #supervisor
 
 
@@ -123,11 +134,11 @@
       quote
     }
 
-    align(bottom)[
-      #heading(outlined: false, level: 2)[
-        #context (if text.lang == "en" [Acknowledgment] else [Poděkování])
-      ]
-      #acknowledgment
+    v(1fr)
+
+    heading(outlined: false, level: 2)[
+      #lang.ling.linguify("acknowledgment", from: lang.database)
     ]
+    acknowledgment
   }
 }

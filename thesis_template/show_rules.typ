@@ -7,7 +7,7 @@
 
   // Font text and size
   set text(
-    // There are more fonts allowed, visit the links above
+    // There are more fonts allowed, specified in template example
     font: "Calibri",
     size: 11pt,
   )
@@ -46,9 +46,6 @@
   show figure: set block(spacing: 1.8em)
   show figure.where(kind: table): set figure.caption(position: top)
 
-  // TODO remove this once fix in typst gets released
-  // PR at https://github.com/typst/typst/pull/6101
-  show figure.where(kind: raw): set figure(supplement: context (if text.lang == "cs" { "Výpis" } else { "Listing" }))
   show raw.where(block: true): set block(
     stroke: (y: 1pt),
     inset: .8em,
@@ -74,11 +71,14 @@
   body
 }
 
-#let start_heading_numbering(body, max_depth: 3) = {
+#let startHeadingNumbering(body, max_depth: 3, offset: h(-.115cm)) = {
   set heading(
     numbering: (..nums) => {
       if nums.pos().len() <= max_depth {
         numbering("1.1", ..nums)
+      } else {
+        // this seems to offset the default numbering space well enough
+        offset
       }
     },
   )

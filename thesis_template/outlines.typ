@@ -1,3 +1,5 @@
+#import "lang.typ" as lang
+
 #let listChapters(max_depth: 3) = {
   show outline.entry.where(level: 1): it => {
     set text(size: 1.25em, weight: "bold")
@@ -13,9 +15,7 @@
 #let listImages = {
   show outline: set heading(outlined: true)
   outline(
-    title: context (
-      if text.lang == "en" [List of Figures] else [Seznam obrázků]
-    ),
+    title: lang.ling.linguify("outlineImages", from: lang.database),
     target: figure.where(kind: image),
   )
 }
@@ -23,9 +23,7 @@
 #let listTables = {
   show outline: set heading(outlined: true)
   outline(
-    title: context (
-      if text.lang == "en" [List of Tables] else [Seznam tabulek]
-    ),
+    title: lang.ling.linguify("outlineTables", from: lang.database),
     target: figure.where(kind: table),
   )
 }
@@ -33,27 +31,29 @@
 #let listSourceCodes = {
   show outline: set heading(outlined: true)
   outline(
-    title: context (
-      if text.lang == "en" [List of Source Code Listings] else [Seznam výpisů zdrojového kódu]
-    ),
+    title: lang.ling.linguify("outlineRaw", from: lang.database),
     target: figure.where(kind: raw),
   )
 }
 
-#let listSymbols(symbols) = {
-  symbols = symbols.sorted(key: it => it.at(0))
-  heading(level: 1)[#context (
-      if text.lang == "en" [List of symbols and abbreviations] else [Seznam použitých zkratek a symbolů]
-    )]
-  grid(
-    columns: (25%, auto, auto),
-    gutter: 15pt,
-    ..for item in symbols {
-      (
-        item.at(0),
-        [---],
-        item.at(1),
-      )
-    },
-  )
+#let listSymbolsTitle = {
+  lang.ling.linguify("outlineAbbr", from: lang.database)
+}
+
+#let listSymbols(symbols: none) = {
+  heading(level: 1)[#listSymbolsTitle]
+  if symbols != none {
+    symbols = symbols.sorted(key: it => it.at(0))
+    grid(
+      columns: (25%, auto, auto),
+      gutter: 15pt,
+      ..for item in symbols {
+        (
+          item.at(0),
+          [---],
+          item.at(1),
+        )
+      },
+    )
+  }
 }

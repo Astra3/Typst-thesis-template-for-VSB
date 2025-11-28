@@ -10,6 +10,7 @@
   "keyword 2",
 )
 
+// TODO this will need some edits with template package
 // Edit this variable if you're in more nested folders, i.e. when using the template as a git submodule
 #let templFolder = "thesis_template/"
 
@@ -25,16 +26,15 @@
 #import templFolder + "template.typ" as temp
 
 // Uncomment the parameter in paranthesis to disable first line indent and increase paragraph spacing. Guidelines don't mention any *correct* way, but latex template uses first line indent.
-#show: temp.template.with(
-  /* firstLineIndent: false */
-)
+#show: temp.template.with(/* firstLineIndent: false */ )
 
 #set text(
   // SET YOUR LANGUAGE HERE CORRECTLY
   // use "cs" or "en", "sk" is not fully supported by typst
   // when you're using Czech, all conjunctions get an unbreabakle space appended by the template, to prevent them from displaying as last characters on the line
   lang: "en",
-  // Template uses Calibri by default (because it's very available and we optimized font sizes for it), if you want to overwrite that (guideline allows for more fonts, see links in template.typ), do it below
+  // Template uses Calibri by default (because it's very available and we optimized font sizes for it), if you want to overwrite thesis_template
+  // (guideline allows for more fonts, see links at the start of this file), do it below
   // I peronally recommend Carlito as sans-serif and Tex Gyre Pangella (based on Palatino)
   // font: "Tex Gyre Pagella",
 )
@@ -45,20 +45,21 @@
 /*
 The very first page:
 Params:
-1. Thesis title in Czech or English
-2. Title again in the other language
-3. Your full name
-4. Supervisor
+1. thesisTitle: Thesis title in Czech or English
+2. thesisDescription: Title again in the other language
+3. fullName: Your full name
+4. supervisor: Supervisor
 Optional params:
-5. Type of your thesis - bachelor, bachelor-practice, master, phd, or semestral, defaults to bachelor
-6. Year of the thesis, defaults to current year
+5. thesisType: Type of your thesis - bachelor, bachelor-practice, master, phd, or semestral, defaults to bachelor
+6. year: Year of the thesis, defaults to auto, which is current year
+7. logo: auto for VŠB logo, none for no logo or content for any content you want
 */
 
 #temp.titlePage(
   title,
   "Tool for something ig",
   author,
-  type: "bachelor",
+  thesisType: "bachelor",
   "Ing. Alena Nováková, PhD.",
 )
 
@@ -67,6 +68,17 @@ Optional params:
 // Thesis assignment page
 
 #temp.assignmentHeading
+// To include a PDF, you can convert each page to svg and then set it as a page background
+// you can see an example of this below
+// Typst does support importing PDFs, but you cannot use it when exporting to PDF/A
+
+// #pagebreak()
+// #set page(background: image("sources/assignment/assignment-1.svg"))
+// #pagebreak()
+// #set page(background: image("sources/assignment/assignment-2.svg"))
+// #pagebreak()
+// #set page(background: none)
+
 
 #lorem(50)
 
@@ -116,18 +128,19 @@ All of the abstracts. Abstract should take about 10 lines.
 // Uncomment this if you don't want chapter title in headers
 // headerHeadingPage sets if a header should be shown on a page starting with header
 #show: temp.headerChapters.with(headerHeadingPage: false)
-#temp.listChapters(
-  /* max_depth: 3 */
-)
+#temp.listChapters(/* max_depth: 3 */ )
 
 
 // List of symbols and abbreviations, automatically alphabetically sorted
-// you can use packages libe abbr or acrostatic for this, if you want more automatic handling
-#temp.listSymbols((
+// I recommend using packages libe abbr or acrostatic for this, for automatic handling
+// remove symbols parameter or set it to none to get only the heading for abbreviations
+#temp.listSymbols(symbols: (
   ("html", "Hyper Text Modeling Language"),
   ("HTML", "language"),
   ("glibc", "GNU C library"),
 ))
+// If using packages, you can use the function below to just get the heading text
+// #temp.listSymbolsTitle
 
 // Remove ANY of the list if you don't have any figures of their type
 
@@ -144,9 +157,9 @@ All of the abstracts. Abstract should take about 10 lines.
 
 
 // Start heading numbering
-// only headings up to and including max_level are shown in the outline and are numbered
-// all headings are be included in PDF's outline
-#show: temp.start_heading_numbering/* .with(max_depth: 3) */
+// only headings up to and including max_depth are shown in the outline and are numbered
+// all headings are included in PDF's outline
+#show: temp.startHeadingNumbering/* .with(max_depth: 3) */
 
 // Start of your text
 
@@ -168,6 +181,8 @@ All of the abstracts. Abstract should take about 10 lines.
 
 #lorem(50)
 
+==== Fourth heading
+
 #lorem(50)
 
 #quote(lorem(50), attribution: [I made it up], block: true)
@@ -175,9 +190,8 @@ All of the abstracts. Abstract should take about 10 lines.
 #lorem(50) And some inline math $5 + 10 = 15$.
 
 $
-  sum_(k=0)^n k
-  &= 1 + ... n \
-  &= (n(n + 1)) / 2
+  sum_(k=0)^n k & = 1 + ... n \
+                & = (n(n + 1)) / 2
 $
 
 Odkaz na @random_table[Tabulku]

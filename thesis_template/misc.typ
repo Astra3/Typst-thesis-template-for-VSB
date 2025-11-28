@@ -1,10 +1,10 @@
+#import "lang.typ" as lang
+
 // Heading for the assignment
-#let assignmentHeading = context (
-  heading(
-    level: 1,
-    outlined: false,
-    if text.lang == "cs" [Zadání kvalifikační práce] else [Thesis assignment],
-  )
+#let assignmentHeading = heading(
+  level: 1,
+  outlined: false,
+  lang.ling.linguify("assignmentHeading", from: lang.database),
 )
 
 #let headerChapters(body, headerHeadingPage: true) = {

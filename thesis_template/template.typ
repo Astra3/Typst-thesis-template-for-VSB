@@ -1,11 +1,9 @@
-#import "show_rules.typ": *
-#import "pages.typ": *
-#import "outlines.typ": *
-#import "misc.typ": *
+#import "show_rules.typ": template, appendix, startHeadingNumbering
+#import "pages.typ": abstracts, titlePage
+#import "outlines.typ": listChapters, listImages, listSourceCodes, listSymbols, listSymbolsTitle, listTables
+#import "misc.typ": assignmentHeading, headerChapters
 
-// TODO support for thesis other than bachelor's is not finished
-// PhD thesis has some additional requirements
-
+// TODO docstrings
 /*
 Template author: Dr00g on Discord / Dr00gy on GitHub and Astra3
 

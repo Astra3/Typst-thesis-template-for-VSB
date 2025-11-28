@@ -1,0 +1,40 @@
+[conf]
+default-lang = "cs"
+
+[lang.en]
+# outlines
+outlineImages = "List of Figures"
+outlineTables = "List of Tables"
+outlineRaw = "List of Source Code Listings"
+outlineAbbr = "List of symbols and abbreviations"
+
+# titles
+bachelorThesis = "Bachelor thesis"
+bachelorPractice = "Bachelor professional practice"
+masterThesis = "Master thesis"
+phdThesis = "PhD thesis"
+semestralProject = "Semestral project"
+
+# misc
+supervisor = "Supervisor:"
+acknowledgment= "Acknowledgment"
+assignmentHeading = "Thesis assignment"
+
+[lang.cs]
+#outlines
+outlineImages = "Seznam obrázků"
+outlineTables = "Seznam tabulek"
+outlineRaw = "Seznam výpisů zdrojového kódu"
+outlineAbbr = "Seznam použitých zkratek a symbolů"
+
+# titles
+bachelorThesis = "Bakalářská práce"
+bachelorPractice = "Bakalářská praxe"
+masterThesis = "Diplomová práce"
+phdThesis = "Disertační práce"
+semestralProject = "Semestrální projekt"
+
+# misc
+supervisor = "Vedoucí práce:"
+acknowledgment= "Poděkování"
+assignmentHeading = "Zadání kvalifikační práce"

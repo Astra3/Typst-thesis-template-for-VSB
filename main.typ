@@ -116,12 +116,10 @@ All of the abstracts. Abstract should take about 10 lines.
     block: true,
   ),
   acknowledgment: [Thank you],
-  // In case you need to set custom abstract spacing
-  // abstractSpacing: 2.5cm,
 )
 
 
-// Page numbering starts with outline
+// Page numbering starts with outline, required by guidelines
 #set page(numbering: "1")
 
 
@@ -164,6 +162,9 @@ All of the abstracts. Abstract should take about 10 lines.
 // Start of your text
 
 = Introduction
+// Guidelines specify that Introduction and Conclusion sections don't have to be numbered.
+// If you don't want numbering, you can disable it like below.
+// #heading(level: 1, numbering: none)[Introduction]
 
 #text(lang: "cs")[
   #lorem(12) Zalomení, spojka a bude zalomena na nový řádek.
@@ -194,7 +195,7 @@ $
                 & = (n(n + 1)) / 2
 $
 
-Odkaz na @random_table[Tabulku]
+Link to @random_table[Tabulku]
 
 - list example
 - second item #footnote("is it really second?")
@@ -267,6 +268,7 @@ some text here
 / Secon term: #lorem(30) @wwdc-network
 / Halting: it is something @halting
 
+// TODO maybe move into a function?
 #bibliography(
   "main_bibliography.yml",
   // this style is required by the styleguide

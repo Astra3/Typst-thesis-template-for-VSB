@@ -1,13 +1,23 @@
 #import "lang.typ" as lang
 
-// Heading for the assignment
+/// Generate a heading for the assignment page, right after title page.
 #let assignmentHeading = heading(
   level: 1,
   outlined: false,
   lang.ling.linguify("assignmentHeading", from: lang.database),
 )
 
-#let headerChapters(body, headerHeadingPage: true) = {
+/// Write the current level 1 heading title into the page header in `body`.
+///
+/// **Should be used as a show rule!**
+///
+/// -> content
+#let headerChapters(
+  /// If `false`, the header will not be written into if the current page contains a level 1 heading. If `true`, pages with level 1 headings will have that heading in the header.
+  /// -> bool
+  headerHeadingPage: false,
+  body,
+) = {
   let headerHeading(text) = {
     align(center)[
       #block(

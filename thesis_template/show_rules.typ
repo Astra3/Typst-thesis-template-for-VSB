@@ -1,7 +1,23 @@
-#let template(firstLineIndent: true, body) = {
+/// The main show rule for the template to set up typographic requirements from guidelines, linked in README.
+///
+/// This function sets up the page layout, fonts, heading sizes and spacing (inspied by LaTeX template), paragraph spacing, list indents, equation numbering. If writing in Czech, this function also appends unbreakable space to every single letter conjunction.
+///
+/// Font sizings in this function are optimized for Calibri font. You might need to overwrite font sizes of text and headings for better look with your font. Guidelines only say that the "default font size should be used;" interpret that however you want.
+///
+/// -> content
+#let template(
+  /// `true` if you want to use first line indentation (.5em) for splitting paragraphs. If `false`, the templae will use 1.2em space between each paragraph. Guidelines do not specify any requirements for this, feel free to overwrite the spacing size later.
+  /// -> bool
+  firstLineIndent: true,
+  /// If `true`, the template will match code blocks from LaTeX template. You can disable this if you are styling the blocks yourself or are using the codly package.
+  /// -> bool
+  modify_raw: true,
+  body,
+) = {
   set page(
     margin: 2.5cm,
-    // Default size from the official styleguide is "a4", however, the official latex template uses "us-letter" if you're a masochist
+    // Default size from the official styleguide is "a4"
+    // Funnily enough, the official latex template uses "us-letter"
     paper: "a4",
   )
 
@@ -46,13 +62,15 @@
   show figure: set block(spacing: 1.8em)
   show figure.where(kind: table): set figure.caption(position: top)
 
-  show raw.where(block: true): set block(
-    stroke: (y: 1pt),
-    inset: .8em,
-    width: 100%,
-  )
+  if modify_raw {
+    show raw.where(block: true): set block(
+      stroke: (y: 1pt),
+      inset: .8em,
+      width: 100%,
+    )
 
-  show raw.where(block: false): set text(weight: "semibold")
+    show raw.where(block: false): set text(weight: "semibold")
+  }
 
   // appends line break to all possible czech conjunctions
   show text.where(lang: "cs"): it => {
@@ -65,20 +83,36 @@
   body
 }
 
+/// Start thesis appendix.
+///
+/// Use as a show rule. Resets heading numbering and set it to alphabetical.
+/// -> content
 #let appendix(body) = {
   counter(heading).update(0)
   set heading(numbering: "A", supplement: [Appendix])
   body
 }
 
-#let startHeadingNumbering(body, max_depth: 3, offset: h(-.115cm)) = {
+/// Start heading numbering in thesis text.
+///
+/// Use as a show rule after outlines.
+///
+/// -> content
+#let startHeadingNumbering(
+  body,
+  /// Up to which depth headings should be numbered.
+  /// -> int
+  max_depth: 3,
+  /// Typst adds some space even for headings that have no numbering if a numbering function is used (which is the case here). This offset is removed from headings that exceed `max_depth` to remove that space. Modify it if your font sizes and types are different.
+  /// -> content
+  no_number_offset: h(-.115cm),
+) = {
   set heading(
     numbering: (..nums) => {
       if nums.pos().len() <= max_depth {
         numbering("1.1", ..nums)
       } else {
-        // this seems to offset the default numbering space well enough
-        offset
+        no_number_offset
       }
     },
   )

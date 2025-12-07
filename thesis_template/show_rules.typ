@@ -6,7 +6,7 @@
 ///
 /// -> content
 #let template(
-  /// `true` if you want to use first line indentation (.5em) for splitting paragraphs. If `false`, the templae will use 1.2em space between each paragraph. Guidelines do not specify any requirements for this, feel free to overwrite the spacing size later.
+  /// `true` if you want to use first line indentation (.5em) for splitting paragraphs. If `false`, the template will use 1.2em space between each paragraph. Guidelines do not specify any requirements for this, feel free to overwrite the spacing size later.
   /// -> bool
   firstLineIndent: true,
   /// If `true`, the template will match code blocks from LaTeX template. You can disable this if you are styling the blocks yourself or are using the codly package.

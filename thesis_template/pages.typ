@@ -14,16 +14,16 @@
   /// -> content | str
   fullName,
   /// Full name of the supervisor, including all titles.
-  /// -> content, str
+  /// -> content | str
   supervisor,
   /// Type of the thesis displayed at the bottom.
   /// -> "bachelor" | "bachelor-practice" | "master" | "phd" | "semestral"
   thesisType: "bachelor",
   /// Year the thesis was released, `auto` (default) for current year.
-  /// -> auto, content, str
+  /// -> auto | content | str
   year: auto,
   /// `auto` for VŠB FEI logo (3cm in height, as required), `none` for no logo and any content for custom logo.
-  /// -> auto, content, none
+  /// -> auto | content | none
   logo: auto,
 ) = {
   // Overwrite some global rules for the title page

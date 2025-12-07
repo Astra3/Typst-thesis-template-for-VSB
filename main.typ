@@ -25,7 +25,7 @@
 // MAKE SURE YOU HAVE CALIBRI FONTS INSTALLED (or imported, if using the online version of typst)
 #import templFolder + "template.typ" as temp
 
-// Uncomment the parameter in paranthesis to disable first line indent and increase paragraph spacing. Guidelines don't mention any *correct* way, but latex template uses first line indent.
+// Uncomment the parameter in parenthesis to disable first line indent and increase paragraph spacing. Guidelines don't mention any *correct* way, but latex template uses first line indent.
 #show: temp.template.with(/* firstLineIndent: false */ )
 
 #set text(
@@ -228,7 +228,7 @@ Link to @random_table[Tabulku]
 ) <random_table>
 
 
-// Idealy you'd create a function or a show rule to have your table style a bit more consistent
+// Ideally you'd create a function or a show rule to have your table style a bit more consistent
 #let nohline = table.hline(stroke: none)
 #figure(
   table(
@@ -265,7 +265,7 @@ some text here
 = Conclusion
 
 / Term: hello @house[p. 358] @halting
-/ Secon term: #lorem(30) @wwdc-network
+/ Second term: #lorem(30) @wwdc-network
 / Halting: it is something @halting
 
 // TODO maybe move into a function?

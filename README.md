@@ -1,4 +1,4 @@
-# Ostrálka -- VŠB FEI Thesis Template
+# Ostrálka — VŠB FEI Thesis Template
 Ostrálka is a template for writing bachelor and master thesis at [Faculty of Electrical Enginnering and Computer Science](https://www.fei.vsb.cz) at [Vysoká škola Báňská - Technical University of Ostrava](https://www.vsb.cz/en).
 
 ## Usage
@@ -22,10 +22,12 @@ The template follows these guidelines wherever it can. When guidelines specify m
 Look into template's repository's issues. Feel free to submit a PR too.
 
 ## Licensing
-Everything in the repository is licensed under MIT license, except:
-- Code in `template` folder -- MIT-0 license, meaning you can use it to write your thesis without any attribution
-- Logos in `src/logos` folder -- refer to <!-- TODO fill in the license --> license
-- `src/iso690-numeric-brackets-cs.csl` file -- [CC-BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0/) license
+Refer to the [copyright](copyright) file, written in accordance with [Debian copyright file format](https://www.debian.org/doc/packaging-manuals/copyright-format/1.0/).
+
+In a nutshell, everything in the repository is licensed under MIT license, except:
+- Code in [`template`](template/) folder — MIT-0 license, meaning you can use it to write your thesis without any attribution
+- Logos in [`src/logos`](src/logos/) folder — refer to <!-- TODO fill in the license --> license
+- [`src/iso690-numeric-brackets-cs.csl`](src/iso690-numeric-brackets-cs.csl) file — [CC-BY-SA-3.0](https://creativecommons.org/licenses/by-sa/3.0/) license
   
-  It comes from the [CSL project](https://citationstyles.org/), from [styles](https://github.com/citation-style-language/styles) repository. Authors are listed in the [file](https://github.com/citation-style-language/styles/blob/master/iso690-numeric-brackets-cs.csl) itself. There have been some small modifications made to it to align more with the styleguide and Czech version of the norm.
+  It comes from the [CSL project](https://citationstyles.org/), from [styles](https://github.com/citation-style-language/styles/) repository. Authors are listed in the [file](https://github.com/citation-style-language/styles/blob/master/iso690-numeric-brackets-cs.csl) itself. There have been some small modifications made to it to align more with ČSN ISO 690. The resulting style is not fully compliant with ČSN ISO 690, but for the purposes of thesis it's been good enough so far.
 

@@ -42,7 +42,6 @@
     #it
   ]
 
-
   show heading.where(level: 2): set text(size: 18pt)
   show heading.where(level: 2): set block(spacing: .8cm)
 

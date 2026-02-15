@@ -46,3 +46,10 @@
   )
   body
 }
+
+/// Read file with current bibliography style.
+///
+/// -> bytes
+#let bibliographyStyle = {
+  read("iso690-numeric-brackets-cs.csl", encoding: none)
+}

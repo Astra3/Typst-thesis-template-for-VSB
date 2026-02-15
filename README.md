@@ -22,3 +22,5 @@ I will not be implementing any of the following:
 - Ph.D. thesis
 - Slovak language (though it's not supported in typst yet either, you can submit a PR here and to typst)
 
+<!-- TODO add links with thesis guidelines -->
+

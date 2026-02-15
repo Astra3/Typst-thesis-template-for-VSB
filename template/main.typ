@@ -1,4 +1,4 @@
-// If you wish to add a title, authors or keywords, do so here!
+// Specify your title, authors and keywords here
 #let title = "Bachelors thesis example"
 #let author = "Your name"
 #let czechKeywords = (
@@ -10,20 +10,16 @@
   "keyword 2",
 )
 
-// TODO this will need some edits with template package
-// Edit this variable if you're in more nested folders, i.e. when using the template as a git submodule
-#let templFolder = "thesis_template/"
-
 #set document(
   title: title,
   author: (author),
-  // set keywords according to your language
+  // set these keywords according to your language
   keywords: englishKeywords,
 )
 
 // Imports template
 // MAKE SURE YOU HAVE CALIBRI FONTS INSTALLED (or imported, if using the online version of typst)
-#import templFolder + "template.typ" as temp
+#import "@preview/ostralka-vsb-fei:0.1.0" as temp
 
 // Uncomment the parameter in parenthesis to disable first line indent and increase paragraph spacing. Guidelines don't mention any *correct* way, but latex template uses first line indent.
 #show: temp.template.with(/* firstLineIndent: false */ )
@@ -33,13 +29,13 @@
   // use "cs" or "en", "sk" is not fully supported by typst
   // when you're using Czech, all conjunctions get an unbreabakle space appended by the template, to prevent them from displaying as last characters on the line
   lang: "en",
-  // Template uses Calibri by default (because it's very available and we optimized font sizes for it), if you want to overwrite thesis_template
-  // (guideline allows for more fonts, see links at the start of this file), do it below
+  // Template uses Calibri by default (because it's very available and we optimized font sizes for it), if you want to overwrite that
+  // (guideline allows for more fonts, see links in README), do it below
   // I peronally recommend Carlito as sans-serif and Tex Gyre Pangella (based on Palatino)
   // font: "Tex Gyre Pagella",
 )
 
-// If you want to set custom monospace font, do it here
+// If you want to set custom monospace font, do so here
 // #show raw: set text(font: "Source Code Pro")
 
 /*
@@ -123,9 +119,12 @@ All of the abstracts. Abstract should take about 10 lines.
 #set page(numbering: "1")
 
 
-// Uncomment this if you don't want chapter title in headers
-// headerHeadingPage sets if a header should be shown on a page starting with header
+// Uncomment this if you don't want chapter title in page headers
+// headerHeadingPage sets if a header should be shown on a page where the heading is specified
 #show: temp.headerChapters.with(headerHeadingPage: false)
+
+// Chapters outline
+// max-depth is 3 by default, it's not specified in guidelines but it's standard practice to keep it like this
 #temp.listChapters(/* max_depth: 3 */ )
 
 
@@ -205,7 +204,7 @@ Link to @random_table[Tabulku]
 + numbered a inline `source code`
 
 // If you want more advanced code blocks, look at https://typst.app/universe/package/codly/
-// the style of the ones here is copied from latex template
+// the style of the ones here is copied from latex template, guidelines don't specify any style
 #figure(
   [
     ```python
@@ -229,6 +228,7 @@ Link to @random_table[Tabulku]
 
 
 // Ideally you'd create a function or a show rule to have your table style a bit more consistent
+// The style of this table is more consistent with the LaTeX template, but no style on tables is enforced
 #let nohline = table.hline(stroke: none)
 #figure(
   table(
@@ -258,8 +258,9 @@ Link to @random_table[Tabulku]
 some text here
 
 #figure(
-  image("images/bacteria.jpg", height: 5cm),
-  caption: [Image of _Treponema pallidum_],
+  // the manual image here is specified as an example; use files for images please
+  image(bytes((0, 0, 0xff, 0, 0xfa, 0)), height: 5cm, format: (encoding: "rgb8", height: 1, width: 2)),
+  caption: [Example image],
 )
 
 = Conclusion
@@ -268,11 +269,10 @@ some text here
 / Second term: #lorem(30) @wwdc-network
 / Halting: it is something @halting
 
-// TODO maybe move into a function?
 #bibliography(
   "main_bibliography.yml",
   // this style is required by the styleguide
-  style: templFolder + "iso690-numeric-brackets-cs.csl",
+  style: temp.bibliographyStyle,
 )
 
 // Start appendix

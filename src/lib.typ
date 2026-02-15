@@ -1,7 +1,7 @@
 #import "show_rules.typ": appendix, startHeadingNumbering, template
 #import "pages.typ": abstracts, titlePage
 #import "outlines.typ": listChapters, listImages, listSourceCodes, listSymbols, listSymbolsTitle, listTables
-#import "misc.typ": assignmentHeading, headerChapters
+#import "misc.typ": assignmentHeading, bibliographyStyle, headerChapters
 
 /*
 Template author: Dr00g on Discord / Dr00gy on GitHub and Astra3

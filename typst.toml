@@ -3,7 +3,7 @@ name = "ostralka-vsb-fei"
 version = "0.1.0"
 entrypoint = "src/lib.typ"
 authors = ["Roman Táborský <@Astra3>"]
-license = "MIT"
+license = "MIT AND MIT-0"
 description = "Bachelor's and Master's thesis at the Faculty of Electrical Engineering and Computer Science of Vysoká škola Báňská - Technical University of Ostrava."
 
 repository = "https://github.com/Astra3/Typst-thesis-template-for-VSB"

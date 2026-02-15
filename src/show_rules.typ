@@ -8,10 +8,10 @@
 #let template(
   /// `true` if you want to use first line indentation (.5em) for splitting paragraphs. If `false`, the template will use 1.2em space between each paragraph. Guidelines do not specify any requirements for this, feel free to overwrite the spacing size later.
   /// -> bool
-  firstLineIndent: true,
+  first-line-indent: true,
   /// If `true`, the template will match code blocks from LaTeX template. You can disable this if you are styling the blocks yourself or are using the codly package.
   /// -> bool
-  modify_raw: true,
+  modify-raw: true,
   body,
 ) = {
   set page(
@@ -51,8 +51,8 @@
     leading: 1em, // It was the most close to other works, the guidelines only specify spacing for Word
     justify: true,
     // line indenting is on by default, all parameter is kept as default, like in latex template
-    first-line-indent: if firstLineIndent { .5cm } else { 0pt },
-    spacing: if firstLineIndent { 1.2em } else { 2em },
+    first-line-indent: if first-line-indent { .5cm } else { 0pt },
+    spacing: if first-line-indent { 1.2em } else { 2em },
   )
 
   set list(indent: 1.5em)
@@ -61,7 +61,7 @@
   show figure: set block(spacing: 1.8em)
   show figure.where(kind: table): set figure.caption(position: top)
 
-  if modify_raw {
+  if modify-raw {
     show raw.where(block: true): set block(
       stroke: (y: 1pt),
       inset: .8em,
@@ -97,21 +97,21 @@
 /// Use as a show rule after outlines.
 ///
 /// -> content
-#let startHeadingNumbering(
+#let start-heading-numbering(
   body,
   /// Up to which depth headings should be numbered.
   /// -> int
-  max_depth: 3,
+  max-depth: 3,
   /// Typst adds some space even for headings that have no numbering if a numbering function is used (which is the case here). This offset is removed from headings that exceed `max_depth` to remove that space. Modify it if your font sizes and types are different.
   /// -> content
-  no_number_offset: h(-.115cm),
+  no-number-offset: h(-.115cm),
 ) = {
   set heading(
     numbering: (..nums) => {
-      if nums.pos().len() <= max_depth {
+      if nums.pos().len() <= max-depth {
         numbering("1.1", ..nums)
       } else {
-        no_number_offset
+        no-number-offset
       }
     },
   )

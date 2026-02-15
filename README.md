@@ -1,26 +1,31 @@
-# Typst template for creating a bachelor's thesis
-## What is included in this repo:
-### 📘 .typ files:
-1. A **main.typ** file - the showcase file which already has some data written in it
-2. A **thesis_template** .typ files - template.typ imports all of the needed functions that were created specifically for the template, the other files are modularised
+# Ostrálka -- VŠB FEI Thesis Template
+Ostrálka is a template for writing bachelor and master thesis at [Faculty of Electrical Enginnering and Computer Science](https://www.fei.vsb.cz) at [Vysoká škola Báňská - Technical University of Ostrava](https://www.vsb.cz/en).
 
-### 📄 Other files:
-3. A folder for logos (in the thesis_template folder, NOT images)
-4. A folder for images / figures for demonstrating images in the demo file (can be repurposed for someone's thesis files)
-5. A PDF file of main.typ for showcasing purposes
-6. A bibliography file for the demo
+## Usage
+In your CLI run:
+```
+typst init @preview/ostralka-vsb-fei
+```
+This will create a skeleton project for your thesis. Read comments in the generated `main.typ` file and modify it to your needs. Focus especially on setting your language, filling out title page details correctly and removing outlines and lists that are empty.
 
-‼️ Make sure to edit the following when writing your thesis:
+### Local installation
+For local installation, follow [Typst's Packages tutorial for local packages](https://github.com/typst/packages/blob/main/README.md#local-packages).
 
-1. The title, author and keywords values
-2. The language setting ("cs" or "en", "sk" is not supported in typst)
-3. Your abstracts, keywords and symbols and abbreviations
-4. Indent settings
+## University's thesis guidelines links
+- [University's LaTeX template](http://www.cs.vsb.cz/dvorsky/LaTeX.html)
+- [VŠB FEI thesis styleguide](https://www.fei.vsb.cz/cs/student/zaverecne-prace)
+- [Faculty logos](https://vizual.vsb.cz/cs/sablony-a-loga/loga/)
 
-## What the template can't do yet
-I will not be implementing any of the following:
-- Ph.D. thesis
-- Slovak language (though it's not supported in typst yet either, you can submit a PR here and to typst)
+The template follows these guidelines wherever it can. When guidelines specify more than one options, these options can be configured in the template. When guidelines specify no formatting on some item but the LaTeX template does this formatting, this formatting is replicated in this template (except for tables) with mention in `main.typ` that it can be changed.
 
-<!-- TODO add links with thesis guidelines -->
+## Reporting issues and missing features
+Look into template's repository's issues. Feel free to submit a PR too.
+
+## Licensing
+Everything in the repository is licensed under MIT license, except:
+- Code in `template` folder -- MIT-0 license, meaning you can use it to write your thesis without any attribution
+- Logos in `src/logos` folder -- refer to <!-- TODO fill in the license --> license
+- `src/iso690-numeric-brackets-cs.csl` file -- [CC-BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0/) license
+  
+  It comes from the [CSL project](https://citationstyles.org/), from [styles](https://github.com/citation-style-language/styles) repository. Authors are listed in the [file](https://github.com/citation-style-language/styles/blob/master/iso690-numeric-brackets-cs.csl) itself. There have been some small modifications made to it to align more with the styleguide and Czech version of the norm.
 

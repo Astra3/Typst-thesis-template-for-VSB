@@ -1,10 +1,10 @@
 #import "lang.typ" as lang
 
 /// Generate a heading for the assignment page, right after title page.
-#let assignmentHeading = heading(
+#let assignment-heading = heading(
   level: 1,
   outlined: false,
-  lang.ling.linguify("assignmentHeading", from: lang.database),
+  lang.ling.linguify("assignment-heading", from: lang.database),
 )
 
 /// Write the current level 1 heading title into the page header in `body`.
@@ -12,13 +12,13 @@
 /// **Should be used as a show rule!**
 ///
 /// -> content
-#let headerChapters(
+#let header-chapters(
   /// If `false`, the header will not be written into if the current page contains a level 1 heading. If `true`, pages with level 1 headings will have that heading in the header.
   /// -> bool
-  headerHeadingPage: false,
+  header-heading-page: false,
   body,
 ) = {
-  let headerHeading(text) = {
+  let header-heading(text) = {
     align(center)[
       #block(
         width: 100%,
@@ -32,15 +32,15 @@
 
   set page(
     header: context {
-      let headingBefore = query(selector(heading.where(level: 1)).before(here())).last()
+      let heading-before = query(selector(heading.where(level: 1)).before(here())).last()
 
-      let headingAfter = query(selector(heading.where(level: 1)).after(here())).first()
+      let heading-after = query(selector(heading.where(level: 1)).after(here())).first()
 
       // Checks if the heading on the next page is the same as on the current page
-      if headingAfter.location().page() == here().page() {
-        if headerHeadingPage { headerHeading(headingAfter.body) }
+      if heading-after.location().page() == here().page() {
+        if header-heading-page { header-heading(heading-after.body) }
       } else {
-        headerHeading(headingBefore.body)
+        header-heading(heading-before.body)
       }
     },
   )
@@ -50,6 +50,6 @@
 /// Read file with current bibliography style.
 ///
 /// -> bytes
-#let bibliographyStyle = {
+#let bibliography-style = {
   read("iso690-numeric-brackets-cs.csl", encoding: none)
 }

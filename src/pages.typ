@@ -3,22 +3,22 @@
 /// Generate first page of the thesis.
 ///
 /// -> content
-#let titlePage(
+#let title-page(
   /// Title of the thesis in Czech or English.
   /// -> content | str
-  thesisTitle,
+  thesis-title,
   /// Title of the thesis in the other language.
   /// -> content | str
-  thesisDescription,
+  thesis-description,
   /// Full name of the thesis author.
   /// -> content | str
-  fullName,
+  full-name,
   /// Full name of the supervisor, including all titles.
   /// -> content | str
   supervisor,
   /// Type of the thesis displayed at the bottom.
   /// -> "bachelor" | "bachelor-practice" | "master" | "phd" | "semestral"
-  thesisType: "bachelor",
+  thesis-type: "bachelor",
   /// Year the thesis was released, `auto` (default) for current year.
   /// -> auto | content | str
   year: auto,
@@ -53,12 +53,12 @@
   [
     #v(3em)
 
-    #text(size: 24pt, weight: "bold")[#thesisTitle]
+    #text(size: 24pt, weight: "bold")[#thesis-title]
 
-    #text(size: 14pt)[#thesisDescription]
+    #text(size: 14pt)[#thesis-description]
 
     #v(2em)
-    #text(size: 24pt, weight: "bold")[#fullName]
+    #text(size: 24pt, weight: "bold")[#full-name]
   ]
 
   if year == auto {
@@ -69,16 +69,16 @@
   // Stuff at page bottom
   [
     #set text(size: 14pt)
-    #if thesisType == "bachelor" {
-      lang.ling.linguify("bachelorThesis", from: lang.database)
-    } else if thesisType == "bachelor-practice" {
-      lang.ling.linguify("bachelorPractice", from: lang.database)
-    } else if thesisType == "master" {
-      lang.ling.linguify("masterThesis", from: lang.database)
-    } else if thesisType == "phd" {
-      lang.ling.linguify("phdThesis", from: lang.database)
-    } else if thesisType == "semestral" {
-      lang.ling.linguify("semestralProject", from: lang.database)
+    #if thesis-type == "bachelor" {
+      lang.ling.linguify("bachelor-thesis", from: lang.database)
+    } else if thesis-type == "bachelor-practice" {
+      lang.ling.linguify("bachelor-practice", from: lang.database)
+    } else if thesis-type == "master" {
+      lang.ling.linguify("master-thesis", from: lang.database)
+    } else if thesis-type == "phd" {
+      lang.ling.linguify("phd-thesis", from: lang.database)
+    } else if thesis-type == "semestral" {
+      lang.ling.linguify("semestral-project", from: lang.database)
     }
 
     #lang.ling.linguify("supervisor", from: lang.database)
@@ -99,22 +99,22 @@
 #let abstracts(
   /// Text of the Czech abstract.
   /// -> content | str
-  czechAbstract,
+  czech-abstract,
   /// Text of the English abstract.
   /// -> content | str
-  englishAbstract,
+  english-abstract,
   /// Czech keywords in an array.
   /// -> array
-  czechKeywords,
+  czech-keywords,
   /// English keywords in an array.
   /// -> array
-  englishKeywords,
+  english-keywords,
   /// Text of the Slovak abstract.
   /// -> content | str | none
-  slovakAbstract: none,
+  slovak-abstract: none,
   /// Slovak keywords in an array.
   /// -> array
-  slovakKeywords: none,
+  slovak-keywords: none,
   /// Custom quote, included at the top of the acknowledgment page.
   /// -> content | str | none
   quote: none,
@@ -123,20 +123,20 @@
   acknowledgment: none,
   /// Spacing between each abstract (and keyword) language.
   /// -> array | auto | length | type
-  abstractSpacing: 2.5cm,
+  abstract-spacing: 2.5cm,
 ) = {
   // Abstract
   grid(
     rows: (auto, auto, auto),
-    row-gutter: abstractSpacing,
+    row-gutter: abstract-spacing,
     {
       text(
         {
           heading(outlined: false, level: 2)[Abstrakt]
-          czechAbstract
+          czech-abstract
 
           heading(outlined: false, level: 2)[Klíčová slova]
-          czechKeywords.join(", ")
+          czech-keywords.join(", ")
         },
         lang: "cs",
       )
@@ -145,22 +145,22 @@
       text(
         {
           heading(outlined: false, level: 2)[Abstract]
-          englishAbstract
+          english-abstract
 
           heading(outlined: false, level: 2)[Keywords]
-          englishKeywords.join(", ")
+          english-keywords.join(", ")
         },
         lang: "en",
       )
     },
-    if slovakAbstract != none and slovakKeywords != none {
+    if slovak-abstract != none and slovak-keywords != none {
       text(
         {
           heading(outlined: false, level: 2)[Abstrakt]
-          slovakAbstract
+          slovak-abstract
 
           heading(outlined: false, level: 2)[Kľúčové slová]
-          slovakKeywords.join(", ")
+          slovak-keywords.join(", ")
         },
         lang: "sk",
       )

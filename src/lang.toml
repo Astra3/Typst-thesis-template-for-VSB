@@ -3,38 +3,38 @@ default-lang = "cs"
 
 [lang.en]
 # outlines
-outlineImages = "List of Figures"
-outlineTables = "List of Tables"
-outlineRaw = "List of Source Code Listings"
-outlineAbbr = "List of symbols and abbreviations"
+outline-images = "List of Figures"
+outline-tables = "List of Tables"
+outline-raw = "List of Source Code Listings"
+outline-abbr = "List of symbols and abbreviations"
 
 # titles
-bachelorThesis = "Bachelor thesis"
-bachelorPractice = "Bachelor professional practice"
-masterThesis = "Master thesis"
-phdThesis = "PhD thesis"
-semestralProject = "Semestral project"
+bachelor-thesis = "Bachelor thesis"
+bachelor-practice = "Bachelor professional practice"
+master-thesis = "Master thesis"
+phd-thesis = "PhD thesis"
+semestral-project = "Semestral project"
 
 # misc
 supervisor = "Supervisor:"
 acknowledgment= "Acknowledgment"
-assignmentHeading = "Thesis assignment"
+assignment-heading = "Thesis assignment"
 
 [lang.cs]
 #outlines
-outlineImages = "Seznam obrázků"
-outlineTables = "Seznam tabulek"
-outlineRaw = "Seznam výpisů zdrojového kódu"
-outlineAbbr = "Seznam použitých zkratek a symbolů"
+outline-images = "Seznam obrázků"
+outline-tables = "Seznam tabulek"
+outline-raw = "Seznam výpisů zdrojového kódu"
+outline-abbr = "Seznam použitých zkratek a symbolů"
 
 # titles
-bachelorThesis = "Bakalářská práce"
-bachelorPractice = "Bakalářská praxe"
-masterThesis = "Diplomová práce"
-phdThesis = "Disertační práce"
-semestralProject = "Semestrální projekt"
+bachelor-thesis = "Bakalářská práce"
+bachelor-practice = "Bakalářská praxe"
+master-thesis = "Diplomová práce"
+phd-thesis = "Disertační práce"
+semestral-project = "Semestrální projekt"
 
 # misc
 supervisor = "Vedoucí práce:"
 acknowledgment= "Poděkování"
-assignmentHeading = "Zadání kvalifikační práce"
+assignment-heading = "Zadání kvalifikační práce"

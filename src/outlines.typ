@@ -3,7 +3,7 @@
 /// Generate chapter outline.
 ///
 /// -> content
-#let listChapters(
+#let list-chapters(
   /// Max depth of outline entries. Keep the default.
   /// -> int
   max_depth: 3,
@@ -22,10 +22,10 @@
 /// Generate figure outline.
 ///
 /// -> content
-#let listImages = {
+#let list-images = {
   show outline: set heading(outlined: true)
   outline(
-    title: lang.ling.linguify("outlineImages", from: lang.database),
+    title: lang.ling.linguify("outline-images", from: lang.database),
     target: figure.where(kind: image),
   )
 }
@@ -33,10 +33,10 @@
 /// Generate table outline.
 ///
 /// -> content
-#let listTables = {
+#let list-tables = {
   show outline: set heading(outlined: true)
   outline(
-    title: lang.ling.linguify("outlineTables", from: lang.database),
+    title: lang.ling.linguify("outline-tables", from: lang.database),
     target: figure.where(kind: table),
   )
 }
@@ -44,10 +44,10 @@
 /// Generate raw block outline.
 ///
 /// -> content
-#let listSourceCodes = {
+#let list-source-codes = {
   show outline: set heading(outlined: true)
   outline(
-    title: lang.ling.linguify("outlineRaw", from: lang.database),
+    title: lang.ling.linguify("outline-raw", from: lang.database),
     target: figure.where(kind: raw),
   )
 }
@@ -55,8 +55,8 @@
 /// Get localized heading text for "Symbols and abbreviations" page.
 ///
 /// -> content
-#let listSymbolsTitle = {
-  lang.ling.linguify("outlineAbbr", from: lang.database)
+#let list-symbols-title = {
+  lang.ling.linguify("outline-abbr", from: lang.database)
 }
 
 /// Generate "Symbols and abbreviations" page with specified symbols.
@@ -64,12 +64,12 @@
 /// All symbols are automatically alphabetically sorted by their abbreviation. This is required by the guidelines.
 ///
 /// -> content
-#let listSymbols(
+#let list-symbols(
   /// Array of arrays with two items, first one being the abbreviations and second one its expansion. If `none`, only the heading is written.
   /// -> none | array
   symbols: none,
 ) = {
-  heading(level: 1)[#listSymbolsTitle]
+  heading(level: 1)[#list-symbols-title]
   if symbols != none {
     symbols = symbols.sorted(key: it => it.at(0))
     grid(

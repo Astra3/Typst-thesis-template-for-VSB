@@ -168,7 +168,7 @@
   )
 
   // Page with acknowledgment and/or quote
-  if acknowledgment != none and quote != none {
+  if acknowledgment != none or quote != none {
     pagebreak()
     // Quote
     if quote != none {

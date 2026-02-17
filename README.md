@@ -14,9 +14,9 @@ For local installation, follow [Typst's Packages tutorial for local packages](ht
 ## University's thesis guidelines links
 - [University's LaTeX template](http://www.cs.vsb.cz/dvorsky/LaTeX.html)
 - [VŠB FEI thesis styleguide](https://www.fei.vsb.cz/cs/student/zaverecne-prace)
-- [Faculty logos](https://vizual.vsb.cz/cs/sablony-a-loga/loga/)
+- [Faculty logos](https://vizual.vsb.cz/cs/sablony-a-loga/loga/) (requires to be logged in to a university account)
 
-The template follows these guidelines wherever it can. When guidelines specify more than one options, these options can be configured in the template. When guidelines specify no formatting on some item but the LaTeX template does this formatting, this formatting is replicated in this template (except for tables) with mention in `main.typ` that it can be changed.
+The template follows these guidelines wherever it can. When guidelines specify more than one option, these options can be configured in the template. When guidelines specify no formatting on some item the template tries to copy LaTeX template with mention in `main.typ` that the style can be changed.
 
 ## Reporting issues and missing features
 Look into template's repository's issues. Feel free to submit a PR too.

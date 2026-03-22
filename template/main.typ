@@ -120,10 +120,6 @@ All of the abstracts. Abstract should take about 10 lines.
 #set page(numbering: "1")
 
 
-// Uncomment this if you don't want chapter title in page headers
-// header-heading-page sets if a header should be shown on a page where the heading is specified
-#show: temp.header-chapters.with(header-heading-page: false)
-
 // Chapters outline
 // max-depth is 3 by default, it's not specified in guidelines but it's standard practice to keep it like this
 #temp.list-chapters(/* max-depth: 3 */ )
@@ -153,6 +149,10 @@ All of the abstracts. Abstract should take about 10 lines.
 // List of Source Code Listings
 #temp.list-source-codes
 
+
+// Uncomment this if you don't want chapter title in page headers
+// header-heading-page sets if a header should be shown on a page where the heading is specified
+#show: temp.header-chapters.with(header-heading-page: false)
 
 // Start heading numbering
 // only headings up to and including max_depth are shown in the outline and are numbered

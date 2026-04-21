@@ -2,6 +2,9 @@
 Ostrálka is a template for writing bachelor and master thesis at [Faculty of Electrical Enginnering and Computer Science](https://www.fei.vsb.cz) at [Vysoká škola Báňská - Technical University of Ostrava](https://www.vsb.cz/en).
 
 ## Usage
+> [!WARNING]
+> This package currently **does not include** any VŠB logos due to licensing issues and **has not yet been published** to Typst Universe, because I would like the first version to be with the logos. To use this package, you have to install it manually, refer to [Local installation](#local-installation). To supply your own logos, refer to links in [guidelines links](#universitys-thesis-guidelines-links).
+
 In your CLI run:
 ```
 typst init @preview/ostralka-vsb-fei

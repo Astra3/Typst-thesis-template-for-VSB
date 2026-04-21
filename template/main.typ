@@ -50,6 +50,8 @@ Optional params:
 5. thesis-type: Type of your thesis - bachelor, bachelor-practice, master, phd, or semestral, defaults to bachelor
 6. year: Year of the thesis, defaults to auto, which is current year
 7. logo: auto for VŠB logo, none for no logo or content for any content you want
+   The logos are currently NOT INCLUDED in the package. You have to provide your own, visit the links in README to get them. Once you do get them,
+   they need to be offset and moved. You can take a look at the code below, which is taken from the title-page function itself to see how to do it.
 */
 
 #temp.title-page(
@@ -58,6 +60,15 @@ Optional params:
   author,
   thesis-type: "bachelor",
   "Ing. Alena Nováková, PhD.",
+  logo: none,
+  // setting a custom university logo
+  // logo: move(
+  //   dx: -8mm,
+  //   image(
+  //     "logos/FEI EN.svg",
+  //     height: 3cm,
+  //   ),
+  // ),
 )
 
 
@@ -262,7 +273,11 @@ some text here
 
 #figure(
   // the manual image here is specified as an example; use files for images please
-  image(bytes((0, 0, 0xff, 0, 0xfa, 0)), height: 5cm, format: (encoding: "rgb8", height: 1, width: 2)),
+  image(bytes((0, 0, 0xff, 0, 0xfa, 0)), height: 5cm, format: (
+    encoding: "rgb8",
+    height: 1,
+    width: 2,
+  )),
   caption: [Example image],
 )
 

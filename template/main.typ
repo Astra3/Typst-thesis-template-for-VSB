@@ -161,7 +161,7 @@ All of the abstracts. Abstract should take about 10 lines.
 #temp.list-source-codes
 
 
-// Uncomment this if you don't want chapter title in page headers
+// Comment this out if you don't want chapter title in page headers
 // header-heading-page sets if a header should be shown on a page where the heading is specified
 #show: temp.header-chapters.with(header-heading-page: false)
 

@@ -32,9 +32,16 @@
 
   set page(
     header: context {
-      let heading-before = query(selector(heading.where(level: 1)).before(here())).last()
+      let heading-selector = selector(heading.where(level: 1))
 
-      let heading-after = query(selector(heading.where(level: 1)).after(here())).first()
+      let heading-before-array = query(selector(heading-selector).before(here()))
+      if heading-before-array.len() == 0 {
+        panic("You must include a heading (including outline headings) before calling header-chapters function.")
+      }
+
+      let heading-before = heading-before-array.last()
+
+      let heading-after = query(heading-selector).first(default: heading-before)
 
       // Checks if the heading on the next page is the same as on the current page
       if heading-after.location().page() == here().page() {
